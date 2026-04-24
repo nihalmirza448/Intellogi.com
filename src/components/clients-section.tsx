@@ -76,6 +76,17 @@ const clients: {
       height: 142,
     },
   },
+  {
+    name: "SiriInfo",
+    href: "https://siriinfo.com/",
+    alt: "Siri Info Solutions",
+    image: {
+      kind: "svg",
+      src: "/clients/siriinfo.svg",
+      className:
+        "max-h-[3.1rem] w-auto max-w-[min(100%,16rem)] object-contain object-center sm:max-h-[3.5rem]",
+    },
+  },
 ];
 
 /** Shared cap; wide marks (FCDO, Amazon) need room — inner well is white for contrast on dark UI. */
