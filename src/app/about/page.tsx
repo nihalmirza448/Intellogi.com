@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
+import { OfficeCards } from "@/components/office-cards";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Intellogi builds web products, data systems, and integrations for teams that need dependable software — civic tech, financial analytics, commerce, and internal operations.",
+    "Intellogi Technologies builds web products, data systems, and integrations for teams that need dependable software — civic tech, financial analytics, commerce, and internal operations.",
 };
 
 export default function AboutPage() {
@@ -16,15 +18,18 @@ export default function AboutPage() {
       <main className="flex flex-1 flex-col">
         <article className="border-b border-zinc-200/80 px-4 py-16 dark:border-zinc-800/80 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-              About
-            </p>
+            <div className="mb-2 flex items-center gap-4">
+              <BrandMark size={64} />
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                About
+              </p>
+            </div>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
               Built in the open. Delivered like infrastructure.
             </h1>
             <div className="mt-10 space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
               <p>
-                Intellogi is a technology practice focused on{" "}
+                Intellogi Technologies is a technology practice focused on{" "}
                 <strong className="font-medium text-zinc-900 dark:text-zinc-200">
                   systems that have to work tomorrow
                 </strong>
@@ -42,11 +47,30 @@ export default function AboutPage() {
                 can extend.
               </p>
               <p>
+                We work from offices in{" "}
+                <strong className="font-medium text-zinc-900 dark:text-zinc-200">
+                  London, United Kingdom
+                </strong>{" "}
+                and{" "}
+                <strong className="font-medium text-zinc-900 dark:text-zinc-200">
+                  Hyderabad, India
+                </strong>
+                , so we can align with teams across UK and India time zones.
+              </p>
+              <p>
                 If you are deciding what to build, how to integrate it, or how to
                 keep it running, we are happy to start with a short conversation
                 and a concrete next step.
               </p>
             </div>
+
+            <div className="mt-14">
+              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                Office locations
+              </h2>
+              <OfficeCards className="mt-6" />
+            </div>
+
             <div className="mt-12 flex flex-wrap gap-3">
               <Link
                 href="/#contact"

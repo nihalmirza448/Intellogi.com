@@ -16,19 +16,27 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://intellogi.com"),
   title: {
-    default: "Intellogi — Software for serious operations",
-    template: "%s · Intellogi",
+    default: "Intellogi Technologies — Software for serious operations",
+    template: "%s · Intellogi Technologies",
   },
   description:
-    "Intellogi designs and ships web platforms, data systems, and automations for teams that need reliability — product engineering, integrations, and advisory.",
+    "Intellogi Technologies designs and ships web platforms, data systems, and automations for teams that need reliability — product engineering, integrations, and advisory.",
   openGraph: {
-    title: "Intellogi",
+    title: "Intellogi Technologies",
     description:
       "Web platforms, data systems, and integrations — built to run, not just to demo.",
     url: "https://intellogi.com",
-    siteName: "Intellogi",
+    siteName: "Intellogi Technologies",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/intellogi-logo.png",
+        width: 1024,
+        height: 395,
+        alt: "Intellogi Technologies",
+      },
+    ],
   },
 };
 

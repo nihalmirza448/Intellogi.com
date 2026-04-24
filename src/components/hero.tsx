@@ -40,7 +40,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
         >
-          Intellogi helps teams design, build, and run reliable digital products
+          Intellogi Technologies helps teams design, build, and run reliable
+          digital products
           — from first architecture to steady-state operations.
         </motion.p>
         <motion.p

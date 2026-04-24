@@ -2,6 +2,10 @@ import { cn } from "@/lib/utils";
 
 const domains = [
   {
+    title: "Privyra — privacy & data-broker removal",
+    body: "India-focused product vision: scan broker exposure, automate deletion requests, and monitor risk.",
+  },
+  {
     title: "Mutual aid & civic platforms",
     body: "Coordination tools for communities and response organizations.",
   },
@@ -39,11 +43,6 @@ export function WorkSection() {
         </h2>
         <p className="mt-3 max-w-2xl text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
           Selected directions, not a trophy wall.
-        </p>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-          A sample of domains we ship in. Swap in public project names, links,
-          and screenshots when you are ready — the through-line is reliable
-          delivery and systems you can operate.
         </p>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {domains.map((item) => (

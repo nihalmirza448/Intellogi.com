@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -6,6 +7,7 @@ const nav = [
   { href: "/#work", label: "Work" },
   { href: "/#approach", label: "Approach" },
   { href: "/about", label: "About" },
+  { href: "/#locations", label: "Offices" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -20,9 +22,12 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
+          className="flex min-w-0 items-center gap-3 text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
         >
-          Intellogi
+          <BrandMark size={52} priority />
+          <span className="truncate sm:whitespace-normal">
+            Intellogi Technologies
+          </span>
         </Link>
         <nav className="hidden items-center gap-1 sm:flex">
           {nav.map((item) => (
