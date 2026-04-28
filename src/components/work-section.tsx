@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const domains = [
   {
     title: "Privyra — privacy & data-broker removal",
     body: "India-focused product vision: scan broker exposure, automate deletion requests, and monitor risk.",
+    href: "/projects/privyra",
+    linkLabel: "View project & live preview",
   },
   {
     title: "Mutual aid & civic platforms",
@@ -59,6 +62,14 @@ export function WorkSection() {
               <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {item.body}
               </p>
+              {"href" in item && item.href ? (
+                <Link
+                  href={item.href}
+                  className="mt-3 inline-block text-sm font-medium text-sky-700 underline-offset-4 hover:underline dark:text-sky-400"
+                >
+                  {item.linkLabel}
+                </Link>
+              ) : null}
             </li>
           ))}
         </ul>

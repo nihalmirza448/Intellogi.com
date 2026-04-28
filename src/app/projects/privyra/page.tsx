@@ -10,8 +10,10 @@ import {
   Trash2,
 } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
+import { PrivyraHostedDemo } from "@/components/privyra-hosted-demo";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { getPrivyraDemoUrl } from "@/lib/privyra-demo";
 import { cn } from "@/lib/utils";
 import {
   privyraDashboard,
@@ -21,6 +23,7 @@ import {
   privyraFinalCta,
   privyraFooter,
   privyraHero,
+  privyraHostedDemo,
   privyraHowItWorks,
   privyraImageUrls,
   privyraIndia,
@@ -63,6 +66,8 @@ function SectionShell({
 }
 
 export default function PrivyraProjectPage() {
+  const privyraDemoUrl = getPrivyraDemoUrl();
+
   return (
     <>
       <SiteHeader />
@@ -120,6 +125,14 @@ export default function PrivyraProjectPage() {
               >
                 Join early access
               </Link>
+              {privyraDemoUrl ? (
+                <a
+                  href="#live-demo"
+                  className="inline-flex h-11 items-center rounded-full border border-zinc-300 bg-white/80 px-6 text-sm font-medium text-zinc-800 backdrop-blur-sm transition-colors hover:border-zinc-400 dark:border-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-100"
+                >
+                  Open live preview
+                </a>
+              ) : null}
               <a
                 href="#how-it-works"
                 className="inline-flex h-11 items-center rounded-full border border-zinc-300 bg-white/80 px-6 text-sm font-medium text-zinc-800 backdrop-blur-sm transition-colors hover:border-zinc-400 dark:border-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-100"
@@ -139,6 +152,24 @@ export default function PrivyraProjectPage() {
             </div>
           </div>
         </section>
+
+        {/* Hosted CRA / production app (iframe when NEXT_PUBLIC_PRIVYRA_DEMO_URL is set) */}
+        <SectionShell id="live-demo" className="border-t-0 sm:border-t">
+          <div className="mx-auto max-w-5xl">
+            <PrivyraHostedDemo
+              url={privyraDemoUrl}
+              kicker={privyraHostedDemo.kicker}
+              title={privyraHostedDemo.title}
+              description={privyraHostedDemo.description}
+              iframeTitle={privyraHostedDemo.iframeTitle}
+              openNewTabLabel={privyraHostedDemo.openNewTabLabel}
+              placeholderTitle={privyraHostedDemo.placeholderTitle}
+              placeholderBody={privyraHostedDemo.placeholderBody}
+              placeholderCta={privyraHostedDemo.placeholderCta}
+              embedHint={privyraHostedDemo.embedHint}
+            />
+          </div>
+        </SectionShell>
 
         {/* Waitlist CTA */}
         <SectionShell id="waitlist" className="border-t-0 sm:border-t">

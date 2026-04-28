@@ -26,6 +26,22 @@ export const privyraWaitlist = {
     "Early access is coordinated through Intellogi Technologies — use the button below to reach the team.",
 } as const;
 
+/** Shown on /projects/privyra — embeds NEXT_PUBLIC_PRIVYRA_DEMO_URL when set. */
+export const privyraHostedDemo = {
+  kicker: "Live application",
+  title: "Interactive product preview",
+  description:
+    "Below is the same customer-facing Privyra experience hosted on our infrastructure (React frontend and FastAPI waitlist backend). Use it for vendor due diligence, integration planning, or UX review alongside the marketing sections on this page.",
+  iframeTitle: "Privyra web application",
+  openNewTabLabel: "Open full application in a new tab",
+  embedHint:
+    "If the preview stays blank, the demo server may need to allow embedding from this domain (for example Content-Security-Policy frame-ancestors or X-Frame-Options). Use “Open full application” above as a fallback.",
+  placeholderTitle: "Live preview for partners",
+  placeholderBody:
+    "The production Privyra app can be embedded here for vendor and partnership reviews. Set NEXT_PUBLIC_PRIVYRA_DEMO_URL to your deployed frontend URL (for example the site where this React build is hosted). Until then, contact Intellogi for a walkthrough or a temporary demo link.",
+  placeholderCta: "Contact Intellogi Technologies",
+} as const;
+
 export const privyraProblems = {
   kicker: "The Problem",
   headline: "Your Personal Data Is Being Sold Online.",
