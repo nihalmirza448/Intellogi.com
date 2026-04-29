@@ -13,7 +13,8 @@ const domains: Domain[] = [
   },
   {
     title: "Mutual aid & civic platforms",
-    body: "Coordination tools for communities and response organizations.",
+    body: "Coordination tools for communities and response organizations — e.g. Mutual Aid Portal for emergency response workflows.",
+    href: "https://mutual-aid-portal.vercel.app/login",
   },
   {
     title: "Early warning & regional data",
@@ -42,6 +43,13 @@ const cardClass = cn(
   "dark:border-zinc-800/80 dark:bg-zinc-950/40"
 );
 
+const linkedCardClass = cn(
+  cardClass,
+  "block text-left outline-offset-2 transition-colors",
+  "hover:border-zinc-300/90 hover:bg-white/90 dark:hover:border-zinc-600 dark:hover:bg-zinc-900/55",
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500/50"
+);
+
 export function WorkSection() {
   return (
     <section
@@ -59,23 +67,35 @@ export function WorkSection() {
           {domains.map((item) => (
             <li key={item.title} className="min-h-0 list-none">
               {"href" in item ? (
-                <Link
-                  href={item.href}
-                  aria-label={`${item.title}. ${item.body}`}
-                  className={cn(
-                    cardClass,
-                    "block text-left outline-offset-2 transition-colors",
-                    "hover:border-zinc-300/90 hover:bg-white/90 dark:hover:border-zinc-600 dark:hover:bg-zinc-900/55",
-                    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500/50"
-                  )}
-                >
-                  <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {item.body}
-                  </p>
-                </Link>
+                item.href.startsWith("http") ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.title}. ${item.body} (opens in a new tab)`}
+                    className={linkedCardClass}
+                  >
+                    <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {item.body}
+                    </p>
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    aria-label={`${item.title}. ${item.body}`}
+                    className={linkedCardClass}
+                  >
+                    <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {item.body}
+                    </p>
+                  </Link>
+                )
               ) : (
                 <div className={cardClass}>
                   <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
