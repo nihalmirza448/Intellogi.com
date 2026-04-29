@@ -1,18 +1,7 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  Check,
-  ChevronRight,
-  Radar,
-  Search,
-  Shield,
-  Trash2,
-} from "lucide-react";
-import { BrandMark } from "@/components/brand-mark";
+import { Check, ChevronRight, Radar, Search, Shield, Trash2 } from "lucide-react";
 import { PrivyraHostedDemo } from "@/components/privyra-hosted-demo";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PrivyraStandaloneHeader } from "@/components/privyra-standalone-header";
 import { getPrivyraDemoUrl } from "@/lib/privyra-demo";
 import { cn } from "@/lib/utils";
 import {
@@ -34,15 +23,6 @@ import {
   privyraWaitlist,
 } from "@/data/privyra";
 
-export const metadata: Metadata = {
-  title: `${privyraMeta.name} — ${privyraMeta.tagline}`,
-  description: privyraMeta.description,
-  openGraph: {
-    title: `${privyraMeta.name} · Intellogi Technologies`,
-    description: privyraMeta.description,
-  },
-};
-
 function SectionShell({
   id,
   className,
@@ -56,7 +36,7 @@ function SectionShell({
     <section
       id={id}
       className={cn(
-        "scroll-mt-24 border-t border-zinc-200/80 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:border-zinc-800/80",
+        "scroll-mt-28 border-t border-zinc-200/80 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:border-zinc-800/80",
         className
       )}
     >
@@ -67,33 +47,16 @@ function SectionShell({
 
 export default function PrivyraProjectPage() {
   const privyraDemoUrl = getPrivyraDemoUrl();
+  const contactHref = `mailto:${privyraFooter.email}`;
 
   return (
-    <>
-      <SiteHeader />
+    <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
+      <PrivyraStandaloneHeader />
       <main className="flex flex-1 flex-col">
-        <div className="border-b border-zinc-200/80 bg-zinc-50/80 px-4 py-3 text-sm dark:border-zinc-800/80 dark:bg-zinc-950/50 sm:px-6 lg:px-8">
-          <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 text-zinc-600 dark:text-zinc-400">
-            <Link
-              href="/"
-              className="flex min-w-0 max-w-[min(100%,18rem)] items-center gap-2.5 font-medium text-zinc-900 transition-colors hover:text-sky-700 dark:text-zinc-100 dark:hover:text-sky-400 sm:max-w-none"
-            >
-              <BrandMark size={44} />
-              <span className="truncate">Intellogi Technologies</span>
-            </Link>
-            <ChevronRight className="size-4 opacity-50" aria-hidden />
-            <span className="text-zinc-500 dark:text-zinc-400">Projects</span>
-            <ChevronRight className="size-4 opacity-50" aria-hidden />
-            <span className="font-medium text-zinc-900 dark:text-zinc-50">
-              {privyraMeta.name}
-            </span>
-          </div>
-        </div>
-
         {/* Hero */}
         <section
           id="hero"
-          className="relative min-h-[28rem] overflow-hidden px-4 py-16 sm:min-h-[32rem] sm:px-6 sm:py-24 lg:px-8"
+          className="relative min-h-[28rem] scroll-mt-28 overflow-hidden px-4 py-16 sm:min-h-[32rem] sm:px-6 sm:py-24 lg:px-8"
         >
           <Image
             src={privyraImageUrls.heroBg}
@@ -119,12 +82,12 @@ export default function PrivyraProjectPage() {
               {privyraHero.subheadline}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/#contact"
+              <a
+                href={contactHref}
                 className="inline-flex h-11 items-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-sky-500 dark:text-zinc-950 dark:hover:bg-sky-400"
               >
                 Join early access
-              </Link>
+              </a>
               {privyraDemoUrl ? (
                 <a
                   href="#live-demo"
@@ -158,6 +121,7 @@ export default function PrivyraProjectPage() {
           <div className="mx-auto max-w-5xl">
             <PrivyraHostedDemo
               url={privyraDemoUrl}
+              contactMailto={contactHref}
               kicker={privyraHostedDemo.kicker}
               title={privyraHostedDemo.title}
               description={privyraHostedDemo.description}
@@ -183,12 +147,12 @@ export default function PrivyraProjectPage() {
             <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-500">
               {privyraWaitlist.formNote}
             </p>
-            <Link
-              href="/#contact"
+            <a
+              href={contactHref}
               className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-zinc-900 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-sky-500 dark:text-zinc-950 dark:hover:bg-sky-400"
             >
-              Contact Intellogi Technologies for access
-            </Link>
+              Email for early access
+            </a>
           </div>
         </SectionShell>
 
@@ -295,7 +259,7 @@ export default function PrivyraProjectPage() {
         {/* India */}
         <section
           id="india-matters"
-          className="relative min-h-[24rem] scroll-mt-24 overflow-hidden border-t border-zinc-200/80 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:border-zinc-800/80"
+          className="relative min-h-[24rem] scroll-mt-28 overflow-hidden border-t border-zinc-200/80 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:border-zinc-800/80"
         >
           <Image
             src={privyraImageUrls.indiaBg}
@@ -446,12 +410,12 @@ export default function PrivyraProjectPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/#contact"
+                  <a
+                    href={contactHref}
                     className="mt-6 inline-flex h-10 items-center justify-center rounded-full bg-zinc-900 text-sm font-medium text-white dark:bg-zinc-100 dark:text-zinc-900"
                   >
                     Join the waitlist
-                  </Link>
+                  </a>
                 </article>
               ))}
             </div>
@@ -494,39 +458,42 @@ export default function PrivyraProjectPage() {
             <p className="mx-auto mt-4 max-w-xl text-sm text-zinc-300 sm:text-base">
               {privyraFinalCta.subtext}
             </p>
-            <Link
-              href="/#contact"
+            <a
+              href={contactHref}
               className="mt-8 inline-flex h-11 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-100"
             >
               Get early access
-            </Link>
+            </a>
           </div>
         </SectionShell>
 
-        {/* Project footer strip */}
-        <div className="border-t border-zinc-200/80 bg-zinc-50/50 px-4 py-10 dark:border-zinc-800/80 dark:bg-zinc-950/40 sm:px-6 lg:px-8">
-          <div className="mx-auto flex max-w-5xl flex-col justify-between gap-6 sm:flex-row sm:items-center">
+        <footer className="mt-auto border-t border-zinc-200/80 bg-zinc-100/90 px-4 py-12 dark:border-zinc-800 dark:bg-zinc-900/95 sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-5xl flex-col justify-between gap-8 sm:flex-row sm:items-start">
             <div>
               <p className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
                 {privyraMeta.name}
               </p>
-              <p className="mt-2 max-w-md text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {privyraFooter.description}
               </p>
             </div>
             <div className="text-sm">
-              <span className="text-zinc-500 dark:text-zinc-400">Product: </span>
+              <p className="text-xs font-medium uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400">
+                Contact
+              </p>
               <a
-                href={`mailto:${privyraFooter.email}`}
-                className="font-medium text-sky-700 underline-offset-4 hover:underline dark:text-sky-400"
+                href={contactHref}
+                className="mt-2 inline-block font-medium text-sky-700 underline-offset-4 hover:underline dark:text-sky-400"
               >
                 {privyraFooter.email}
               </a>
             </div>
           </div>
-        </div>
+          <p className="mx-auto mt-10 max-w-5xl text-center text-xs text-zinc-500 dark:text-zinc-500 sm:text-left">
+            © {new Date().getFullYear()} {privyraMeta.name}. All rights reserved.
+          </p>
+        </footer>
       </main>
-      <SiteFooter />
-    </>
+    </div>
   );
 }

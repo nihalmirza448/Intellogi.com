@@ -8,21 +8,26 @@ export function SiteFooter() {
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-start">
           <div>
-            <div className="flex items-center gap-4">
-              <BrandMark size={56} />
-              <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-                Intellogi Technologies
-              </p>
-            </div>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-              Web products, data systems, and integrations for teams that need
-              dependable software — civic tech, financial analytics, commerce,
-              and internal operations.
-            </p>
-            <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
-              © {new Date().getFullYear()} Intellogi Technologies. All rights
-              reserved.
-            </p>
+            <Link
+              href="/"
+              className="group flex max-w-md items-start gap-4 rounded-xl p-2 -m-2 text-left outline-offset-2 transition-colors hover:bg-zinc-100/80 dark:hover:bg-zinc-900/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500/40"
+            >
+              <BrandMark size={56} className="ring-offset-2 ring-offset-zinc-50 group-hover:ring-2 group-hover:ring-sky-400/25 dark:ring-offset-zinc-950" />
+              <div className="min-w-0 pt-0.5">
+                <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
+                  Intellogi Technologies
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                  Web products, data systems, and integrations for teams that need
+                  dependable software — civic tech, financial analytics, commerce,
+                  and internal operations.
+                </p>
+                <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
+                  © {new Date().getFullYear()} Intellogi Technologies. All rights
+                  reserved.
+                </p>
+              </div>
+            </Link>
           </div>
           <div className="flex flex-wrap gap-6 text-sm text-zinc-600 dark:text-zinc-400">
             <Link

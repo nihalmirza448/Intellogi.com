@@ -22,10 +22,10 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-3 text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
+          className="group flex min-w-0 max-w-[min(100%,20rem)] items-center gap-3 rounded-xl px-2 py-2 -m-1 text-left text-sm font-semibold tracking-tight text-zinc-900 outline-offset-2 transition-colors hover:bg-zinc-200/50 dark:text-zinc-50 dark:hover:bg-zinc-800/50 sm:max-w-none sm:px-3 sm:py-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500/50"
         >
-          <BrandMark size={52} priority />
-          <span className="truncate sm:whitespace-normal">
+          <BrandMark size={52} priority className="ring-offset-2 ring-offset-zinc-50 group-hover:ring-2 group-hover:ring-sky-400/30 dark:ring-offset-zinc-950" />
+          <span className="min-w-0 truncate sm:whitespace-normal">
             Intellogi Technologies
           </span>
         </Link>

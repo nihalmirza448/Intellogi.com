@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Props = {
   url?: string;
+  contactMailto: string;
   kicker: string;
   title: string;
   description: string;
@@ -19,6 +19,7 @@ type Props = {
 
 export function PrivyraHostedDemo({
   url,
+  contactMailto,
   kicker,
   title,
   description,
@@ -41,12 +42,12 @@ export function PrivyraHostedDemo({
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
           {placeholderBody}
         </p>
-        <Link
-          href="/#contact"
+        <a
+          href={contactMailto}
           className="mt-8 inline-flex h-11 items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-sky-500 dark:text-zinc-950 dark:hover:bg-sky-400"
         >
           {placeholderCta}
-        </Link>
+        </a>
       </div>
     );
   }

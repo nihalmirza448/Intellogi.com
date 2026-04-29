@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored CRA export — not part of the Next.js app lint surface.
+    "privyra-apps/**",
   ]),
 ]);
 

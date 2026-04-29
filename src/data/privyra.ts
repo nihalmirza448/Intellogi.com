@@ -23,7 +23,7 @@ export const privyraWaitlist = {
   title: "Join Privyra Waitlist",
   subtext: "Be first to get early access and lifetime launch discounts.",
   formNote:
-    "Early access is coordinated through Intellogi Technologies — use the button below to reach the team.",
+    "Use your work email if you are reviewing for a partnership — we reply from the same inbox.",
 } as const;
 
 /** Shown on /projects/privyra — embeds NEXT_PUBLIC_PRIVYRA_DEMO_URL when set. */
@@ -38,8 +38,8 @@ export const privyraHostedDemo = {
     "If the preview stays blank, the demo server may need to allow embedding from this domain (for example Content-Security-Policy frame-ancestors or X-Frame-Options). Use “Open full application” above as a fallback.",
   placeholderTitle: "Live preview for partners",
   placeholderBody:
-    "The production Privyra app can be embedded here for vendor and partnership reviews. Set NEXT_PUBLIC_PRIVYRA_DEMO_URL to your deployed frontend URL (for example the site where this React build is hosted). Until then, contact Intellogi for a walkthrough or a temporary demo link.",
-  placeholderCta: "Contact Intellogi Technologies",
+    "When the hosted app URL is configured for this page, the live product loads here for vendor and security review. Until then, use email for access or a guided walkthrough.",
+  placeholderCta: "Email Privyra",
 } as const;
 
 export const privyraProblems = {
