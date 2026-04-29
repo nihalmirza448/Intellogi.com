@@ -243,7 +243,7 @@ export const privyraFinalCta = {
 export const privyraFooter = {
   description:
     "A privacy protection platform helping people remove personal data from the internet.",
-  email: "hello@privyra.com",
+  email: "nihal@intellogi.com",
 } as const;
 
 export const privyraImageUrls = {

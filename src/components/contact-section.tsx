@@ -21,10 +21,10 @@ export function ContactSection() {
             or a proposed next step.
           </p>
           <Link
-            href="mailto:hello@intellogi.com"
+            href="mailto:nihal@intellogi.com"
             className="mt-8 inline-flex h-11 items-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
           >
-            hello@intellogi.com
+            nihal@intellogi.com
           </Link>
         </div>
 

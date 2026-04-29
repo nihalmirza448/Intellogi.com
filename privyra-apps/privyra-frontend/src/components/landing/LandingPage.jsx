@@ -813,7 +813,7 @@ export default function LandingPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:hello@privyra.com" className="transition-colors hover:text-[#00f5ff]" data-testid="footer-social-email">
+                  <a href="mailto:nihal@intellogi.com" className="transition-colors hover:text-[#00f5ff]" data-testid="footer-social-email">
                     Email
                   </a>
                 </li>
