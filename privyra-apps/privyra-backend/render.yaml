@@ -1,0 +1,16 @@
+# https://render.com/docs/blueprint-spec
+# In Render dashboard: New Blueprint → select this repo → set root to privyra-apps/privyra-backend
+services:
+  - type: web
+    name: privyra-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: DB_NAME
+        value: privyra
+      - key: CORS_ORIGINS
+        sync: false

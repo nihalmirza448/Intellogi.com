@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+code {
+    font-family: var(--font-mono);
+}
+
+@layer base {
+    :root {
+        --background: 224 20% 8%;
+        --foreground: 0 0% 100%;
+        --card: 223 23% 12%;
+        --card-foreground: 0 0% 100%;
+        --popover: 223 23% 12%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 216 86% 30%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 247 86% 69%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 223 14% 20%;
+        --muted-foreground: 220 14% 75%;
+        --accent: 181 100% 50%;
+        --accent-foreground: 224 20% 8%;
+        --destructive: 344 100% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 223 14% 24%;
+        --input: 223 14% 24%;
+        --ring: 181 100% 50%;
+        --chart-1: 216 86% 30%;
+        --chart-2: 247 86% 69%;
+        --chart-3: 181 100% 50%;
+        --chart-4: 156 100% 47%;
+        --chart-5: 39 100% 54%;
+        --radius: 0.5rem;
+        --font-heading: "Outfit", sans-serif;
+        --font-body: "Manrope", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+    }
+
+    .dark {
+        --background: 224 20% 8%;
+        --foreground: 0 0% 100%;
+        --card: 223 23% 12%;
+        --card-foreground: 0 0% 100%;
+        --popover: 223 23% 12%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 216 86% 30%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 247 86% 69%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 223 14% 20%;
+        --muted-foreground: 220 14% 75%;
+        --accent: 181 100% 50%;
+        --accent-foreground: 224 20% 8%;
+        --destructive: 344 100% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 223 14% 24%;
+        --input: 223 14% 24%;
+        --ring: 181 100% 50%;
+        --chart-1: 216 86% 30%;
+        --chart-2: 247 86% 69%;
+        --chart-3: 181 100% 50%;
+        --chart-4: 156 100% 47%;
+        --chart-5: 39 100% 54%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-heading {
+        font-family: var(--font-heading);
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

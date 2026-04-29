@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+privyra-apps/**/node_modules
+privyra-apps/**/build
 /.pnp
 .pnp.*
 .yarn/*
