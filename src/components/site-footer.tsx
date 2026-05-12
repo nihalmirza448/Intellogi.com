@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
-import { offices } from "@/lib/offices";
 import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
@@ -53,23 +52,6 @@ export function SiteFooter() {
               Contact
             </Link>
           </div>
-        </div>
-
-        <div className="mt-10 grid gap-8 border-t border-zinc-200/80 pt-10 dark:border-zinc-800/80 sm:grid-cols-2">
-          {offices.map((office) => (
-            <div key={office.id}>
-              <p className="text-xs font-medium uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400">
-                {office.label}
-              </p>
-              <address className="mt-2 not-italic text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                {office.lines.map((line, i) => (
-                  <span key={`${office.id}-${i}`} className="block">
-                    {line}
-                  </span>
-                ))}
-              </address>
-            </div>
-          ))}
         </div>
       </div>
     </footer>
