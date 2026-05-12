@@ -26,6 +26,10 @@ privyra-apps/**/build
 .DS_Store
 *.pem
 
+# Company stamp — local / private only; do not commit to public repos
+/public/intellogi-company-stamp.png
+/public/intellogi-company-stamp.svg
+
 # debug
 npm-debug.log*
 yarn-debug.log*
