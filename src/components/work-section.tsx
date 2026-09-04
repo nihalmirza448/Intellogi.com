@@ -1,114 +1,109 @@
+"use client";
+
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/reveal";
+import { useFieldHover } from "@/components/spatial-field";
 
-type Domain =
-  | { title: string; body: string; href: string }
-  | { title: string; body: string };
-
-const domains: Domain[] = [
+const cases = [
   {
-    title: "Privyra — privacy & data-broker removal",
-    body: "India-focused product vision: scan broker exposure, automate deletion requests, and monitor risk.",
+    title: "Privyra",
+    constraint: "Personal data sold across broker networks in India.",
+    approach:
+      "Scan exposure, automate deletion requests, and keep risk visible after the first cleanup.",
     href: "/projects/privyra",
+    external: false,
+    action: "Open the product",
   },
   {
-    title: "Mutual aid & civic platforms",
-    body: "Coordination tools for communities and response organizations — e.g. Mutual Aid Portal for emergency response workflows.",
+    title: "Mutual Aid Portal",
+    constraint: "Coordination under emergency pressure, with many actors and little time.",
+    approach:
+      "Case and aid flows, shared operational picture, and a system communities can actually staff.",
     href: "https://mutual-aid-portal.vercel.app/login",
+    external: true,
+    action: "View the live system",
   },
   {
-    title: "Early warning & regional data",
-    body: "Initiatives where timing, geography, and trustworthy data matter.",
+    title: "45-60",
+    constraint: "Signals, execution, and operations sitting in disconnected tools.",
+    approach:
+      "A live trading cockpit — Confluence Core — so signals, rules, and paper-forward results stay visible after the trade.",
+    href: "https://45-60.com",
+    external: true,
+    action: "Open the platform",
   },
-  {
-    title: "Trading & market analytics",
-    body: "Tooling around signals, execution, and operational reporting.",
-  },
-  {
-    title: "E‑commerce & branded web",
-    body: "Storefronts and marketing properties you can extend and operate.",
-  },
-  {
-    title: "Visa & compliance-adjacent tools",
-    body: "Consumer-facing flows where clarity and accuracy reduce friction.",
-  },
-  {
-    title: "Databases, migration & reporting",
-    body: "Setup and pipelines for teams who live in spreadsheets and exports.",
-  },
-];
+] as const;
 
-const cardClass = cn(
-  "h-full rounded-2xl border border-zinc-200/80 bg-white/60 p-5 backdrop-blur-sm",
-  "dark:border-zinc-800/80 dark:bg-zinc-950/40"
-);
+function CaseLink({
+  item,
+  index,
+}: {
+  item: (typeof cases)[number];
+  index: number;
+}) {
+  const hover = useFieldHover(2);
+  const inner = (
+    <>
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-3xl">
+          <p className="font-mono text-xs text-gold">
+            {String(index + 1).padStart(2, "0")}
+          </p>
+          <h3 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-6xl">
+            {item.title}
+          </h3>
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-text-secondary">
+            <span className="font-medium text-foreground">Constraint. </span>
+            {item.constraint}
+          </p>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
+            <span className="font-medium text-foreground">Approach. </span>
+            {item.approach}
+          </p>
+        </div>
+        <span className="site-btn site-btn-quiet inline-flex h-auto shrink-0">
+          {item.action}
+          <ArrowUpRight className="size-4" />
+        </span>
+      </div>
+    </>
+  );
 
-const linkedCardClass = cn(
-  cardClass,
-  "block text-left outline-offset-2 transition-colors",
-  "hover:border-zinc-300/90 hover:bg-white/90 dark:hover:border-zinc-600 dark:hover:bg-zinc-900/55",
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500/50"
-);
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="site-case group"
+        {...hover}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={item.href} className="site-case group" {...hover}>
+      {inner}
+    </Link>
+  );
+}
 
 export function WorkSection() {
   return (
-    <section
-      id="work"
-      className="scroll-mt-24 border-t border-zinc-200/80 px-4 py-20 dark:border-zinc-800/80 sm:px-6 lg:px-8"
-    >
-      <div className="mx-auto max-w-5xl">
-        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-          Work
-        </h2>
-        <p className="mt-3 max-w-2xl text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-          Selected directions, not a trophy wall.
-        </p>
-        <ul className="mt-12 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {domains.map((item) => (
-            <li key={item.title} className="min-h-0 list-none">
-              {"href" in item ? (
-                item.href.startsWith("http") ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${item.title}. ${item.body} (opens in a new tab)`}
-                    className={linkedCardClass}
-                  >
-                    <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      {item.body}
-                    </p>
-                  </a>
-                ) : (
-                  <Link
-                    href={item.href}
-                    aria-label={`${item.title}. ${item.body}`}
-                    className={linkedCardClass}
-                  >
-                    <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      {item.body}
-                    </p>
-                  </Link>
-                )
-              ) : (
-                <div className={cardClass}>
-                  <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {item.body}
-                  </p>
-                </div>
-              )}
-            </li>
+    <section id="work" className="site-section px-[var(--site-gutter)]">
+      <div className="site-shell">
+        <Reveal>
+          <p className="site-kicker">Work</p>
+          <h2 className="site-title mt-4 max-w-3xl">Constraint, then the system.</h2>
+        </Reveal>
+        <div className="mt-16">
+          {cases.map((item, index) => (
+            <CaseLink key={item.title} item={item} index={index} />
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

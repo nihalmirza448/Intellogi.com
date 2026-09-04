@@ -1,79 +1,97 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { Magnetic } from "@/components/magnetic";
+import { RevealItem } from "@/components/reveal";
+
+const channels = [
+  { id: "01", name: "Platforms" },
+  { id: "02", name: "Data" },
+  { id: "03", name: "Integrations" },
+] as const;
+
+function zoneTime(date: Date, timeZone: string) {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(date);
+}
+
+function DualClock() {
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    const tick = () => setNow(new Date());
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  return (
+    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
+      {now ? (
+        <>
+          London {zoneTime(now, "Europe/London")}
+          <span className="mx-2 text-gold/50">/</span>
+          Hyderabad {zoneTime(now, "Asia/Kolkata")}
+        </>
+      ) : (
+        <span aria-hidden>London ——:——:—— / Hyderabad ——:——:——</span>
+      )}
+    </p>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="relative px-4 pb-24 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div
-          className={cn(
-            "absolute -left-1/4 top-0 h-[480px] w-[150%] rounded-[100%] opacity-40 blur-3xl",
-            "bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-sky-200/50 via-transparent to-transparent",
-            "dark:from-sky-900/30"
-          )}
-        />
+    <section className="relative flex min-h-[100svh] flex-col justify-end px-[var(--site-gutter)] pb-10 pt-28 sm:pb-14">
+      <div className="site-shell">
+        <RevealItem>
+          <p className="site-kicker">Software for serious operations</p>
+        </RevealItem>
+        <RevealItem delay={0.06}>
+          <h1 className="site-display mt-6 max-w-6xl">
+            We build systems
+            <br />
+            your team can run.
+          </h1>
+        </RevealItem>
+        <RevealItem delay={0.12}>
+          <p className="site-lede mt-8 max-w-xl">
+            Intellogi designs and ships web platforms, data systems, and
+            integrations for civic, financial, and commercial teams — with
+            ownership, documentation, and a clear handoff.
+          </p>
+        </RevealItem>
+        <RevealItem delay={0.18}>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Magnetic>
+              <Link href="/#contact" className="site-btn site-btn-primary site-link">
+                Start a project
+                <ArrowUpRight className="size-4" strokeWidth={2} />
+              </Link>
+            </Magnetic>
+            <Link href="/#work" className="site-btn site-btn-quiet site-link">
+              Selected work
+            </Link>
+          </div>
+        </RevealItem>
       </div>
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400"
-        >
-          Technology &amp; operations
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="text-balance text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl dark:text-zinc-50"
-        >
-          Clear systems. Thoughtful delivery.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
-        >
-          Intellogi Technologies helps teams design, build, and run reliable
-          digital products
-          — from first architecture to steady-state operations.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-zinc-600 dark:text-zinc-400"
-        >
-          Our work spans custom web applications, data and reporting pipelines,
-          and integrations that connect trading stacks, CRMs, and operational
-          tools — with documentation, handoff, and sensible defaults included.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
-        >
-          <Link
-            href="/#contact"
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
-          >
-            Start a project
-            <ArrowUpRight className="size-4" strokeWidth={2} />
-          </Link>
-          <Link
-            href="/#services"
-            className="inline-flex h-11 items-center rounded-full border border-zinc-300 bg-white/80 px-6 text-sm font-medium text-zinc-800 backdrop-blur-sm transition-colors hover:border-zinc-400 hover:bg-white dark:border-zinc-700 dark:bg-zinc-950/80 dark:text-zinc-100 dark:hover:border-zinc-600"
-          >
-            View services
-          </Link>
-        </motion.div>
+
+      <div className="site-shell mt-16 flex flex-col gap-4 border-t border-border pt-5 sm:mt-20 sm:flex-row sm:items-center sm:justify-between">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-secondary">
+          {channels.map((channel) => (
+            <li key={channel.id}>
+              <span className="text-gold">{channel.id}</span> {channel.name}
+            </li>
+          ))}
+        </ul>
+        <DualClock />
       </div>
     </section>
   );

@@ -52,7 +52,7 @@ export default function PrivyraProjectPage() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
       <PrivyraStandaloneHeader />
-      <main className="flex flex-1 flex-col">
+      <main id="main" className="flex flex-1 flex-col">
         {/* Hero */}
         <section
           id="hero"

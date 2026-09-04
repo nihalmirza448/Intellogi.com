@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BrandMark } from "@/components/brand-mark";
+import { MarketingChrome } from "@/components/marketing-chrome";
 import { OfficeCards } from "@/components/office-cards";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,24 +12,22 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
-      <SiteHeader />
-      <main className="flex flex-1 flex-col">
-        <article className="border-b border-zinc-200/80 px-4 py-16 dark:border-zinc-800/80 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mx-auto max-w-2xl">
-            <div className="mb-2 flex items-center gap-4">
-              <BrandMark size={64} />
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                About
-              </p>
-            </div>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
-              Built in the open. Delivered like infrastructure.
+    <MarketingChrome>
+      <article className="px-[var(--site-gutter)] pb-24 pt-32">
+        <div className="site-shell">
+          <Reveal>
+            <p className="site-kicker">About</p>
+            <h1 className="site-display mt-6 max-w-5xl">
+              Built in the open.
+              <br />
+              Delivered like infrastructure.
             </h1>
-            <div className="mt-10 space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="prose prose-invert mt-14 max-w-2xl text-base leading-relaxed text-text-secondary">
               <p>
                 Intellogi Technologies is a technology practice focused on{" "}
-                <strong className="font-medium text-zinc-900 dark:text-zinc-200">
+                <strong className="font-medium text-foreground">
                   systems that have to work tomorrow
                 </strong>
                 , not just on launch day. We partner with teams that need clear
@@ -48,47 +45,42 @@ export default function AboutPage() {
               </p>
               <p>
                 We work from offices in{" "}
-                <strong className="font-medium text-zinc-900 dark:text-zinc-200">
+                <strong className="font-medium text-foreground">
                   London, United Kingdom
                 </strong>{" "}
                 and{" "}
-                <strong className="font-medium text-zinc-900 dark:text-zinc-200">
+                <strong className="font-medium text-foreground">
                   Hyderabad, India
                 </strong>
                 , so we can align with teams across UK and India time zones.
               </p>
               <p>
                 If you are deciding what to build, how to integrate it, or how to
-                keep it running, we are happy to start with a short conversation
-                and a concrete next step.
+                keep it running, start with a short conversation and a concrete
+                next step.
               </p>
             </div>
+          </Reveal>
 
-            <div className="mt-14">
-              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                Office locations
-              </h2>
-              <OfficeCards className="mt-6" />
+          <Reveal delay={0.1}>
+            <div className="mt-20">
+              <h2 className="site-kicker">Office locations</h2>
+              <OfficeCards className="mt-8 max-w-3xl" />
             </div>
+          </Reveal>
 
-            <div className="mt-12 flex flex-wrap gap-3">
-              <Link
-                href="/#contact"
-                className="inline-flex h-11 items-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
-              >
+          <Reveal delay={0.12}>
+            <div className="mt-14 flex flex-wrap items-center gap-3">
+              <Link href="/#contact" className="site-btn site-btn-primary site-link">
                 Start a project
               </Link>
-              <Link
-                href="/#services"
-                className="inline-flex h-11 items-center rounded-full border border-zinc-300 bg-white/80 px-6 text-sm font-medium text-zinc-800 backdrop-blur-sm transition-colors hover:border-zinc-400 hover:bg-white dark:border-zinc-700 dark:bg-zinc-950/80 dark:text-zinc-100 dark:hover:border-zinc-600"
-              >
+              <Link href="/#services" className="site-btn site-btn-quiet site-link">
                 View services
               </Link>
             </div>
-          </div>
-        </article>
-      </main>
-      <SiteFooter />
-    </>
+          </Reveal>
+        </div>
+      </article>
+    </MarketingChrome>
   );
 }

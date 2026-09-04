@@ -1,42 +1,41 @@
-import Link from "next/link";
+"use client";
+
+import { Magnetic } from "@/components/magnetic";
 import { OfficeCards } from "@/components/office-cards";
+import { Reveal } from "@/components/reveal";
+import { useFieldHover } from "@/components/spatial-field";
 
 export function ContactSection() {
-  return (
-    <section
-      id="contact"
-      className="scroll-mt-24 border-t border-zinc-200/80 px-4 py-20 dark:border-zinc-800/80 sm:px-6 lg:px-8"
-    >
-      <div className="mx-auto max-w-5xl">
-        <div className="text-center">
-          <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Contact
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-            Tell us what you&apos;re building — we&apos;ll reply with next steps.
-          </p>
-          <p className="mx-auto mt-4 max-w-md text-pretty text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Share the problem, your timeline, and who will own the system after
-            launch. We typically respond within two business days with questions
-            or a proposed next step.
-          </p>
-          <Link
-            href="mailto:nihal@intellogi.com"
-            className="mt-8 inline-flex h-11 items-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
-          >
-            nihal@intellogi.com
-          </Link>
-        </div>
+  const hover = useFieldHover(3);
 
-        <div id="locations" className="scroll-mt-24 pt-16">
-          <h3 className="text-center text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Offices
-          </h3>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm text-zinc-600 dark:text-zinc-400">
-            London and Hyderabad — same team, overlapping hours for UK and India
-            time zones.
+  return (
+    <section id="contact" className="site-section px-[var(--site-gutter)]">
+      <div className="site-shell">
+        <Reveal>
+          <p className="site-kicker">Contact</p>
+          <h2 className="site-title mt-4 max-w-4xl">
+            Tell us the constraint. We will reply with a next step.
+          </h2>
+          <p className="site-lede mt-6 max-w-md">
+            Share the problem, the timeline, and who will own the system after
+            launch. We typically respond within two business days.
           </p>
-          <OfficeCards className="mt-10" />
+          <Magnetic className="mt-10">
+            <a
+              href="mailto:nihal@intellogi.com"
+              className="site-link block text-[clamp(1.6rem,5vw,3.75rem)] font-extrabold tracking-tight text-gold"
+              {...hover}
+            >
+              nihal@intellogi.com
+            </a>
+          </Magnetic>
+        </Reveal>
+        <div id="locations" className="mt-20 scroll-mt-24">
+          <p className="site-kicker">Offices</p>
+          <p className="mt-3 max-w-md text-sm text-text-secondary">
+            London and Hyderabad — overlapping hours for UK and India time zones.
+          </p>
+          <OfficeCards className="mt-8" />
         </div>
       </div>
     </section>

@@ -1,103 +1,190 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/reveal";
 
 type ClientImage =
   | { kind: "svg"; src: string; className?: string }
-  | { kind: "raster"; src: string; width: number; height: number; className?: string };
+  | {
+      kind: "raster";
+      src: string;
+      width: number;
+      height: number;
+      className?: string;
+    };
 
 const clients: {
   name: string;
+  full: string;
   href: string;
-  alt: string;
   image: ClientImage;
 }[] = [
   {
     name: "UK FCDO",
+    full: "Foreign, Commonwealth & Development Office",
     href: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office",
-    alt: "UK Foreign, Commonwealth & Development Office",
     image: {
       kind: "raster",
       src: "/clients/fcdo.png",
       width: 800,
       height: 559,
-      className:
-        "max-h-[3.25rem] w-auto max-w-[min(100%,17.5rem)] object-contain object-center sm:max-h-16",
+      className: "max-h-[4.75rem] w-auto max-w-[92%] scale-110 object-contain",
     },
   },
   {
-    name: "Proximity2Humanity",
+    name: "UN IOM",
+    full: "International Organization for Migration",
+    href: "https://www.iom.int",
+    image: {
+      kind: "raster",
+      src: "/clients/iom.png",
+      width: 360,
+      height: 220,
+      className: "max-h-14 w-auto max-w-[92%] scale-110 object-contain",
+    },
+  },
+  {
+    name: "GFFO",
+    full: "German Federal Foreign Office",
+    href: "https://www.auswaertiges-amt.de/en",
+    image: {
+      kind: "svg",
+      src: "/clients/gffo.svg",
+      className: "max-h-14 w-auto max-w-[92%] object-contain",
+    },
+  },
+  {
+    name: "DKH",
+    full: "Diakonie Katastrophenhilfe",
+    href: "https://www.diakonie-katastrophenhilfe.de/",
+    image: {
+      kind: "svg",
+      src: "/clients/dkh.svg",
+      className: "max-h-12 w-auto max-w-[92%] scale-110 object-contain",
+    },
+  },
+  {
+    name: "NIDAA",
+    full: "Sudanese Development Call Organization",
+    href: "https://nidaa.org",
+    image: {
+      kind: "raster",
+      src: "/clients/nidaa.png",
+      width: 556,
+      height: 91,
+      className: "max-h-10 w-auto max-w-[94%] scale-105 object-contain",
+    },
+  },
+  {
+    name: "Gisa Group",
+    full: "Gisa Group",
+    href: "https://gisa-group.org/",
+    image: {
+      kind: "raster",
+      src: "/clients/gisa-group.png",
+      width: 800,
+      height: 533,
+      className: "max-h-[4.75rem] w-auto max-w-[94%] scale-110 object-contain",
+    },
+  },
+  {
+    name: "MASC",
+    full: "Mutual Aid Sudan Coalition",
+    href: "https://www.mutualaidsudan.org/",
+    image: {
+      kind: "raster",
+      src: "/clients/masc.png",
+      width: 937,
+      height: 827,
+      className: "max-h-[4.85rem] w-auto max-w-[90%] scale-125 object-contain",
+    },
+  },
+  {
+    name: "LoHub",
+    full: "Localization Hub",
+    href: "https://localizationhub.org/",
+    image: {
+      kind: "raster",
+      src: "/clients/localization-hub.png",
+      width: 600,
+      height: 650,
+      className: "max-h-[4.85rem] w-auto max-w-[88%] scale-125 object-contain",
+    },
+  },
+  {
+    name: "P2H",
+    full: "Proximity2Humanity International",
     href: "https://www.proximity2humanity.org",
-    alt: "Proximity2Humanity International",
     image: {
       kind: "raster",
       src: "/clients/proximity2humanity.webp",
       width: 220,
       height: 102,
-      className:
-        "max-h-[3.35rem] w-auto max-w-[min(100%,15rem)] object-contain object-center sm:max-h-[3.65rem]",
+      className: "max-h-12 w-auto max-w-[94%] scale-110 object-contain",
     },
   },
   {
-    name: "Mercy Corps Venture Lab",
+    name: "Mercy Corps",
+    full: "Mercy Corps Venture Lab",
     href: "https://www.mercycorpsventures.com/venture-lab",
-    alt: "Mercy Corps Venture Lab",
     image: {
       kind: "raster",
       src: "/clients/mercy-corps.png",
       width: 176,
       height: 200,
+      className: "max-h-[4.75rem] w-auto max-w-[88%] scale-125 object-contain",
     },
   },
   {
-    name: "VTB Bank",
+    name: "VTB",
+    full: "VTB Bank",
     href: "https://www.vtb.com",
-    alt: "VTB Bank",
-    image: { kind: "svg", src: "/clients/vtb.svg" },
+    image: {
+      kind: "svg",
+      src: "/clients/vtb.svg",
+      className: "max-h-12 w-auto max-w-[90%] scale-110 object-contain",
+    },
   },
   {
     name: "Amazon",
+    full: "Amazon.com",
     href: "https://www.amazon.com",
-    alt: "Amazon.com",
     image: {
       kind: "svg",
       src: "/clients/amazon.svg",
-      className:
-        "max-h-[2.85rem] w-auto max-w-[min(100%,15.5rem)] object-contain object-center sm:max-h-[3.35rem]",
+      className: "max-h-10 w-auto max-w-[88%] scale-110 object-contain",
     },
   },
   {
-    name: "Convexity Technologies Nigeria",
+    name: "Convexity",
+    full: "Convexity Technologies Nigeria",
     href: "https://withconvexity.com",
-    alt: "Convexity Technologies Nigeria",
     image: {
       kind: "raster",
       src: "/clients/convexity.png",
       width: 497,
       height: 142,
+      className: "max-h-12 w-auto max-w-[94%] scale-110 object-contain",
     },
   },
   {
     name: "SiriInfo",
+    full: "Siri Info Solutions",
     href: "https://siriinfo.com/",
-    alt: "Siri Info Solutions",
     image: {
       kind: "svg",
       src: "/clients/siriinfo.svg",
-      className:
-        "max-h-[3.1rem] w-auto max-w-[min(100%,16rem)] object-contain object-center sm:max-h-[3.5rem]",
+      className: "max-h-12 w-auto max-w-[92%] scale-110 object-contain",
     },
   },
 ];
 
-/** Shared cap; wide marks (FCDO, Amazon) need room — inner well is white for contrast on dark UI. */
-const logoVisualClass =
-  "max-h-12 w-auto max-w-full object-contain sm:max-h-[3.75rem]";
+const logoVisualClass = "max-h-12 w-auto max-w-[90%] object-contain";
 
 function ClientLogo({ image }: { image: ClientImage }) {
   const cls = image.className ?? logoVisualClass;
   if (image.kind === "svg") {
     return (
-      // Local third-party SVG marks; next/image disallows remote/local SVG without extra config.
+      // Local third-party SVG marks; next/image disallows SVG without extra config.
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={image.src}
@@ -125,42 +212,35 @@ export function ClientsSection() {
     <section
       id="clients"
       aria-label="Clients and partners"
-      className="scroll-mt-24 border-t border-zinc-200/80 px-4 py-16 dark:border-zinc-800/80 sm:px-6 lg:px-8"
+      className="px-[var(--site-gutter)] pb-8"
     >
-      <div className="mx-auto max-w-5xl">
-        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-          Clients &amp; partners
-        </h2>
-        <p className="mt-3 max-w-2xl text-lg font-medium tracking-tight text-zinc-700 dark:text-zinc-300">
-          Organisations we have worked with or supported.
-        </p>
-        <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
-          {clients.map((c) => (
-            <li key={c.name} className="flex min-w-0 justify-center">
+      <Reveal className="site-shell">
+        <p className="site-kicker">Selected partners</p>
+        <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {clients.map((client) => (
+            <li key={client.name} className="min-w-0">
               <Link
-                href={c.href}
+                href={client.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${c.alt} (opens in a new tab)`}
-                className="group flex w-full max-w-60 flex-col items-center gap-2.5 text-center outline-offset-4"
+                className="site-link group block outline-offset-4"
               >
-                <span
-                  className="flex h-24 w-full shrink-0 items-center justify-center rounded-xl border border-zinc-200/80 bg-zinc-100/90 px-3 py-2.5 shadow-sm transition group-hover:border-zinc-300 group-hover:bg-zinc-100 dark:border-zinc-700/80 dark:bg-zinc-900/90 dark:group-hover:border-zinc-600 dark:group-hover:bg-zinc-900"
-                  aria-hidden
-                >
-                  {/* Solid light well so dark / transparent marks stay legible in dark mode */}
-                  <span className="flex h-19 w-full max-w-56 items-center justify-center rounded-lg bg-white px-3 py-2 shadow-inner ring-1 ring-zinc-200/80 dark:ring-zinc-300/25">
-                    <ClientLogo image={c.image} />
+                <span className="site-logo-well" aria-hidden>
+                  <ClientLogo image={client.image} />
+                </span>
+                <span className="mt-3 block text-sm font-semibold tracking-tight text-foreground group-hover:text-gold">
+                  {client.name}
+                </span>
+                {client.full !== client.name ? (
+                  <span className="mt-1 block text-xs leading-snug text-text-secondary">
+                    {client.full}
                   </span>
-                </span>
-                <span className="line-clamp-2 min-h-9 w-full text-balance text-xs leading-snug text-zinc-500 underline-offset-2 group-hover:underline dark:text-zinc-400">
-                  {c.name}
-                </span>
+                ) : null}
               </Link>
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
     </section>
   );
 }
