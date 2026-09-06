@@ -123,15 +123,27 @@ const clients: {
     },
   },
   {
-    name: "Mercy Corps",
+    name: "MCV",
     full: "Mercy Corps Venture Lab",
     href: "https://www.mercycorpsventures.com/venture-lab",
     image: {
       kind: "raster",
-      src: "/clients/mercy-corps.png",
-      width: 176,
-      height: 200,
-      className: "max-h-[4.75rem] w-auto max-w-[88%] scale-125 object-contain",
+      src: "/clients/mercy-corps-ventures.png",
+      width: 1314,
+      height: 251,
+      className: "max-h-10 w-auto max-w-[96%] object-contain",
+    },
+  },
+  {
+    name: "CFG",
+    full: "Collaborative Futures Group",
+    href: "https://collaborative-futures.com/",
+    image: {
+      kind: "raster",
+      src: "/clients/collaborative-futures.png",
+      width: 2323,
+      height: 190,
+      className: "max-h-8 w-auto max-w-[96%] object-contain",
     },
   },
   {

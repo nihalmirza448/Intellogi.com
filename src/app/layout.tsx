@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Syne } from "next/font/google";
+import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
 
 const syne = Syne({
   variable: "--font-syne",
@@ -48,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${geist.variable} ${syne.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="relative flex min-h-full flex-col">
         <a href="#main" className="skip-link site-link">

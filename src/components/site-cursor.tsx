@@ -32,7 +32,7 @@ export function SiteCursor() {
     const onMove = (event: PointerEvent) => {
       target.x = event.clientX;
       target.y = event.clientY;
-      scaleTarget = isHot(event.target) ? 1.85 : 1;
+      scaleTarget = isHot(event.target) ? 1.28 : 1;
     };
 
     const tick = () => {
