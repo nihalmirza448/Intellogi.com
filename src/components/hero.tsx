@@ -52,7 +52,10 @@ export function Hero() {
     <section className="relative flex min-h-[100svh] flex-col justify-end px-[var(--site-gutter)] pb-10 pt-28 sm:pb-14">
       <div className="site-shell">
         <RevealItem>
-          <p className="site-kicker">Software for serious operations</p>
+          <Link href="/#contact" className="site-kicker site-link inline-flex items-center gap-2">
+            Got a constraint? Start here
+            <ArrowUpRight className="size-3.5" strokeWidth={2} />
+          </Link>
         </RevealItem>
         <RevealItem delay={0.06}>
           <h1 className="site-display mt-6 max-w-6xl">

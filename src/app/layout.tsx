@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://intellogi.com"),
   title: {
-    default: "Intellogi Technologies — Software for serious operations",
+    default: "Intellogi Technologies — Systems your team can run",
     template: "%s · Intellogi Technologies",
   },
   description:
