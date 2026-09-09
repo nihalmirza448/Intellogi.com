@@ -33,7 +33,9 @@ export function ContactSection() {
         <div id="locations" className="mt-20 scroll-mt-24">
           <p className="site-kicker">Offices</p>
           <p className="mt-3 max-w-md text-sm text-text-secondary">
-            London and Hyderabad — overlapping hours for UK and India time zones.
+            London and Hyderabad — overlapping hours for UK and India time
+            zones. That overlap is what makes Run credible: support that covers
+            both working days.
           </p>
           <OfficeCards className="mt-8" />
         </div>

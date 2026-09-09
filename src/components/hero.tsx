@@ -7,9 +7,10 @@ import { Magnetic } from "@/components/magnetic";
 import { RevealItem } from "@/components/reveal";
 
 const channels = [
-  { id: "01", name: "Platforms" },
-  { id: "02", name: "Data" },
-  { id: "03", name: "Integrations" },
+  { id: "01", name: "Define" },
+  { id: "02", name: "Architect" },
+  { id: "03", name: "Deliver" },
+  { id: "04", name: "Run" },
 ] as const;
 
 function zoneTime(date: Date, timeZone: string) {
@@ -59,23 +60,23 @@ export function Hero() {
         </RevealItem>
         <RevealItem delay={0.06}>
           <h1 className="site-display mt-6 max-w-6xl">
-            We build systems
+            The technology function
             <br />
-            your team can run.
+            for large programmes.
           </h1>
         </RevealItem>
         <RevealItem delay={0.12}>
           <p className="site-lede mt-8 max-w-xl">
-            Intellogi designs and ships web platforms, data systems, and
-            integrations for civic, financial, and commercial teams — with
-            ownership, documentation, and a clear handoff.
+            From the requirement to the running system, one accountable partner
+            across the whole technology surface — for humanitarian, civic, and
+            financial programmes that need the estate held.
           </p>
         </RevealItem>
         <RevealItem delay={0.18}>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Magnetic>
               <Link href="/#contact" className="site-btn site-btn-primary site-link">
-                Start a project
+                Tell us the constraint
                 <ArrowUpRight className="size-4" strokeWidth={2} />
               </Link>
             </Magnetic>

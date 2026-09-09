@@ -192,7 +192,13 @@ const clients: {
 
 const logoVisualClass = "max-h-12 w-auto max-w-[90%] object-contain";
 
-function ClientLogo({ image }: { image: ClientImage }) {
+function ClientLogo({
+  image,
+  alt,
+}: {
+  image: ClientImage;
+  alt: string;
+}) {
   const cls = image.className ?? logoVisualClass;
   if (image.kind === "svg") {
     return (
@@ -200,7 +206,7 @@ function ClientLogo({ image }: { image: ClientImage }) {
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={image.src}
-        alt=""
+        alt={alt}
         className={cls}
         loading="lazy"
         decoding="async"
@@ -210,7 +216,7 @@ function ClientLogo({ image }: { image: ClientImage }) {
   return (
     <Image
       src={image.src}
-      alt=""
+      alt={alt}
       width={image.width}
       height={image.height}
       className={cls}
@@ -223,11 +229,16 @@ export function ClientsSection() {
   return (
     <section
       id="clients"
-      aria-label="Clients and partners"
+      aria-label="Partners"
       className="px-[var(--site-gutter)] pb-8"
     >
       <Reveal className="site-shell">
         <p className="site-kicker">Selected partners</p>
+        {/* NEEDS CONFIRM: prime vs subcontract for each mark. Line does not claim either. */}
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+          Institutions and programmes we have worked with on the technology
+          estate.
+        </p>
         <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {clients.map((client) => (
             <li key={client.name} className="min-w-0">
@@ -237,8 +248,8 @@ export function ClientsSection() {
                 rel="noopener noreferrer"
                 className="site-link group block outline-offset-4"
               >
-                <span className="site-logo-well" aria-hidden>
-                  <ClientLogo image={client.image} />
+                <span className="site-logo-well">
+                  <ClientLogo image={client.image} alt={client.full} />
                 </span>
                 <span className="mt-3 block text-sm font-semibold tracking-tight text-foreground group-hover:text-gold">
                   {client.name}
