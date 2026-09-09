@@ -7,7 +7,7 @@ import { useEffect, useId, useState } from "react";
 import { BrandMark } from "@/components/brand-mark";
 
 const nav = [
-  { href: "/#services", label: "Services" },
+  { href: "/#capabilities", label: "Capabilities" },
   { href: "/#work", label: "Work" },
   { href: "/#approach", label: "Approach" },
   { href: "/about", label: "About" },
@@ -63,7 +63,7 @@ export function SiteHeader() {
           href="/#contact"
           className="site-btn site-btn-primary site-link ml-6 hidden no-underline md:inline-flex"
         >
-          Start a project
+          Tell us the constraint
         </Link>
 
         <button
@@ -100,7 +100,7 @@ export function SiteHeader() {
             className="site-btn site-btn-primary site-link mt-8 w-fit no-underline"
             onClick={() => setOpen(false)}
           >
-            Start a project
+            Tell us the constraint
           </Link>
         </div>
       ) : null}

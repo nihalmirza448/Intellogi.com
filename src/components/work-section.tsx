@@ -8,27 +8,36 @@ import { useFieldHover } from "@/components/spatial-field";
 const cases = [
   {
     title: "Privyra",
-    constraint: "Personal data sold across broker networks in India.",
+    constraint:
+      "People cannot see or stop personal data being sold across broker networks in India.",
     approach:
       "Scan exposure, automate deletion requests, and keep risk visible after the first cleanup.",
+    // Inferred from Privyra being Intellogi's own product on this site.
+    ownership: "Intellogi holds and runs Privyra.",
     href: "/projects/privyra",
     external: false,
     action: "Open the product",
   },
   {
     title: "Mutual Aid Portal",
-    constraint: "Coordination under emergency pressure, with many actors and little time.",
+    constraint:
+      "Aid has to move under emergency pressure, with many actors and no shared picture of who is doing what.",
     approach:
       "Case and aid flows, shared operational picture, and a system communities can actually staff.",
+    // Restates the existing “communities can actually staff” claim. Confirm operator.
+    ownership: "Community operators can staff and run the live system.",
     href: "https://mutual-aid-portal.vercel.app/login",
     external: true,
     action: "View the live system",
   },
   {
     title: "45-60",
-    constraint: "Signals, execution, and operations sitting in disconnected tools.",
+    constraint:
+      "Trading decisions, rules and results lived in separate tools, so the operation could not be seen as one picture.",
     approach:
       "A live trading cockpit — Confluence Core — so signals, rules, and paper-forward results stay visible after the trade.",
+    // Inferred from the live platform. Confirm operator.
+    ownership: "Operators run the live platform.",
     href: "https://45-60.com",
     external: true,
     action: "Open the platform",
@@ -60,6 +69,10 @@ function CaseLink({
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
             <span className="font-medium text-foreground">Approach. </span>
             {item.approach}
+          </p>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
+            <span className="font-medium text-foreground">Ownership. </span>
+            {item.ownership}
           </p>
         </div>
         <span className="site-btn site-btn-quiet inline-flex h-auto shrink-0">

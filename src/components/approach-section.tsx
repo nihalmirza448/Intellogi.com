@@ -5,6 +5,10 @@ import { useFieldHover } from "@/components/spatial-field";
 
 const steps = [
   {
+    title: "Define the requirement",
+    body: "What should exist, what should not, and what the estate will look like — before the constraint becomes a build.",
+  },
+  {
     title: "Understand the constraint",
     body: "Outcomes, risks, and what “done” means — before anyone writes code.",
   },
@@ -51,7 +55,7 @@ export function ApproachSection() {
             Small teams. Tight loops. A handoff you can keep.
           </h2>
         </Reveal>
-        <ol className="mt-16 grid gap-12 lg:grid-cols-3 lg:gap-0">
+        <ol className="mt-16 grid gap-12 lg:grid-cols-4 lg:gap-0">
           {steps.map((step, index) => (
             <Step key={step.title} step={step} index={index} />
           ))}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
 
 const links = [
-  { href: "/#services", label: "Services" },
+  { href: "/#capabilities", label: "Capabilities" },
   { href: "/#work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
@@ -20,8 +20,8 @@ export function SiteFooter() {
             </p>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-text-secondary">
-            Platforms, data systems, and integrations for teams that need
-            software they can operate — civic, financial, and commercial.
+            Constraint, then the system. The technology function for large
+            programmes — from the requirement to the running system.
           </p>
           <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
             © {new Date().getFullYear()} Intellogi Technologies

@@ -5,16 +5,24 @@ import { useFieldHover } from "@/components/spatial-field";
 
 const items = [
   {
-    title: "Platforms for coordination and response",
-    body: "Web applications for communities and organizations — information sharing, case or aid flows, and operations under pressure, including early-warning work where timing and clarity matter.",
+    label: "Define",
+    title: "A requirement a board can fund",
+    body: "Programme objectives exist. The technology requirement usually does not. We turn those objectives into what is needed, what already exists, what should be bought rather than built, and what should not exist at all — costed and phased so a donor can fund it and a board can approve it.",
   },
   {
-    title: "Markets, data, and reporting",
-    body: "Dashboards, pipelines, and exchange integrations that keep signals, execution, and reporting traceable — including the messy inputs teams actually live in: spreadsheets, exports, archives.",
+    label: "Architect",
+    title: "Someone holds the whole estate",
+    body: "When the estate has no shape, every new tool becomes another seam. We set the systems, data model, integration points, access tiers, hosting, security posture, and how it will be governed — so there is one picture, and someone is accountable for it.",
   },
   {
-    title: "Commerce and operational automation",
-    body: "Storefronts and marketing properties on modern stacks, plus the connections between CRM, content, and internal tools — including agent-style workflows where they earn their place.",
+    label: "Deliver",
+    title: "The systems the programme runs",
+    body: "This is the part everyone else leads with. We build and integrate coordination platforms, field collection, case and aid flows, data pipelines, reporting, storefronts, and the connections to whatever already exists. Every figure in a report walks back to the input that produced it.",
+  },
+  {
+    label: "Run & transfer",
+    title: "The programme holds it before we leave",
+    body: "We operate what we build: support hours across UK and India time zones, incident response, data quality monitoring, change requests handled as a programme rather than a ticket queue. Documentation, runbooks, named owners and trained engineers are deliverables with dates. The engagement has an end, designed from the start.",
   },
 ] as const;
 
@@ -33,7 +41,7 @@ function ServiceRow({
       {...hover}
     >
       <span className="font-mono text-xs text-gold">
-        {String(index + 1).padStart(2, "0")}
+        {String(index + 1).padStart(2, "0")} {item.label}
       </span>
       <h3 className="max-w-md text-2xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-3xl">
         {item.title}
@@ -47,12 +55,12 @@ function ServiceRow({
 
 export function ServicesSection() {
   return (
-    <section id="services" className="site-section px-[var(--site-gutter)]">
-      <div className="site-shell">
+    <section id="capabilities" className="site-section px-[var(--site-gutter)]">
+      <div id="services" className="site-shell">
         <Reveal>
-          <p className="site-kicker">Services</p>
+          <p className="site-kicker">Capabilities</p>
           <h2 className="site-title mt-4 max-w-3xl">
-            Three kinds of systems. One delivery standard.
+            Four capabilities. One accountable partner.
           </h2>
         </Reveal>
         <ol className="mt-16">
