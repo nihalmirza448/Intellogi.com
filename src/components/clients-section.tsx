@@ -15,7 +15,7 @@ type ClientImage =
 const clients: {
   name: string;
   full: string;
-  href: string;
+  href?: string;
   image: ClientImage;
 }[] = [
   {
@@ -65,7 +65,6 @@ const clients: {
   {
     name: "NIDAA",
     full: "Sudanese Development Call Organization",
-    href: "https://nidaa.org",
     image: {
       kind: "raster",
       src: "/clients/nidaa.png",
@@ -101,7 +100,6 @@ const clients: {
   {
     name: "LoHub",
     full: "Localization Hub",
-    href: "https://localizationhub.org/",
     image: {
       kind: "raster",
       src: "/clients/localization-hub.png",
@@ -149,7 +147,6 @@ const clients: {
   {
     name: "VTB",
     full: "VTB Bank",
-    href: "https://www.vtb.com",
     image: {
       kind: "svg",
       src: "/clients/vtb.svg",
@@ -225,6 +222,24 @@ function ClientLogo({
   );
 }
 
+function ClientCard({ client }: { client: (typeof clients)[number] }) {
+  return (
+    <>
+      <span className="site-logo-well">
+        <ClientLogo image={client.image} alt={client.full} />
+      </span>
+      <span className="mt-3 block text-sm font-semibold tracking-tight text-foreground group-hover:text-gold">
+        {client.name}
+      </span>
+      {client.full !== client.name ? (
+        <span className="mt-1 block text-xs leading-snug text-text-secondary">
+          {client.full}
+        </span>
+      ) : null}
+    </>
+  );
+}
+
 export function ClientsSection() {
   return (
     <section
@@ -242,24 +257,20 @@ export function ClientsSection() {
         <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {clients.map((client) => (
             <li key={client.name} className="min-w-0">
-              <Link
-                href={client.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="site-link group block outline-offset-4"
-              >
-                <span className="site-logo-well">
-                  <ClientLogo image={client.image} alt={client.full} />
-                </span>
-                <span className="mt-3 block text-sm font-semibold tracking-tight text-foreground group-hover:text-gold">
-                  {client.name}
-                </span>
-                {client.full !== client.name ? (
-                  <span className="mt-1 block text-xs leading-snug text-text-secondary">
-                    {client.full}
-                  </span>
-                ) : null}
-              </Link>
+              {client.href ? (
+                <Link
+                  href={client.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="site-link group block outline-offset-4"
+                >
+                  <ClientCard client={client} />
+                </Link>
+              ) : (
+                <div className="group block">
+                  <ClientCard client={client} />
+                </div>
+              )}
             </li>
           ))}
         </ul>
