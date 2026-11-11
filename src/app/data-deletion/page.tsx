@@ -17,7 +17,7 @@ export default function DataDeletionPage() {
         about you at any time. This includes the WhatsApp conversation records
         described in our <Link href="/privacy">privacy policy</Link>, which
         come from Intellogi&rsquo;s WhatsApp Business number and our Meta app
-        &ldquo;nihal-wasup-assistant&rdquo;.
+        &ldquo;intellogi-wassap-assistant&rdquo;.
       </p>
 
       <h2>How to request deletion</h2>
@@ -64,7 +64,7 @@ export default function DataDeletionPage() {
         If you ever connected a Facebook or Meta account to our app, you can
         also remove it yourself. In Facebook, open Settings &amp; privacy,
         then Settings, then Apps and websites. Find
-        &ldquo;nihal-wasup-assistant&rdquo; and choose Remove. You can then
+        &ldquo;intellogi-wassap-assistant&rdquo; and choose Remove. You can then
         email us as above to delete any data we already received.
       </p>
 
