@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           Intellogi&rsquo;s WhatsApp messaging tools, which connect our own
           WhatsApp Business number to the WhatsApp Business Platform provided
           by Meta. This includes the Meta app registered to us as
-          &ldquo;nihal-wasup-assistant&rdquo;.
+          &ldquo;intellogi-wassap-assistant&rdquo;.
         </li>
       </ul>
 
