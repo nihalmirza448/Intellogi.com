@@ -6,6 +6,9 @@ const links = [
   { href: "/#work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/data-deletion", label: "Data deletion" },
 ] as const;
 
 export function SiteFooter() {
