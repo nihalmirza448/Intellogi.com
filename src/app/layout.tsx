@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+import { JsonLd } from "@/components/json-ld";
+import {
+  organizationJsonLd,
+  siteDescription,
+  siteName,
+  siteUrl,
+  websiteJsonLd,
+} from "@/lib/site";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -19,20 +27,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://intellogi.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Intellogi Technologies — Technology for large programmes",
+    default: "Intellogi Technologies | Technology for government, UN and humanitarian programmes",
     template: "%s · Intellogi Technologies",
   },
-  description:
-    "Intellogi is the technology function for large programmes: one accountable partner from the requirement to the running system, then a planned transfer.",
+  description: siteDescription,
+  applicationName: siteName,
   openGraph: {
     title: "Intellogi Technologies",
     description:
-      "The technology function for large programmes — from the requirement to the running system.",
-    url: "https://intellogi.com",
-    siteName: "Intellogi Technologies",
-    locale: "en_US",
+      "The technology partner for government, UN and humanitarian programmes — from the requirement to the running system, then a planned handover.",
+    url: siteUrl,
+    siteName,
+    locale: "en_GB",
     type: "website",
     images: [
       {
@@ -42,6 +50,13 @@ export const metadata: Metadata = {
         alt: "Intellogi Technologies",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Intellogi Technologies",
+    description:
+      "The technology partner for government, UN and humanitarian programmes.",
+    images: ["/intellogi-logo.png"],
   },
 };
 
@@ -59,6 +74,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link site-link">
           Skip to content
         </a>
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         {children}
       </body>
     </html>

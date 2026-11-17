@@ -5,6 +5,9 @@ export const privyraMeta = {
   tagline: "Privacy Protection for the Modern Internet",
   description:
     "Privyra finds where your phone number, email, and personal details are exposed across broker sites and marketing databases, then automates deletion requests to cut spam calls, spam SMS, and privacy risk.",
+  /** Search snippet; keep under 155 characters. */
+  metaDescription:
+    "Privyra finds where your phone number and email are exposed on data broker sites, then automates deletion requests to cut spam calls and privacy risk.",
 } as const;
 
 export const privyraTrustPills = [
