@@ -33,14 +33,14 @@ function Step({
 
   return (
     <li
-      className="group border-t border-border pt-8 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8"
+      className="group border-t border-dashed border-[var(--ag-border-strong)] pt-8 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
       {...hover}
     >
-      <p className="font-mono text-xs text-gold">{String(index + 1).padStart(2, "0")}</p>
-      <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold">
+      <span className="site-disc">{index + 1}</span>
+      <h3 className="mt-6 text-2xl font-normal tracking-tight text-foreground">
         {step.title}
       </h3>
-      <p className="mt-4 max-w-sm text-sm leading-relaxed text-text-secondary">{step.body}</p>
+      <p className="mt-4 max-w-sm leading-relaxed text-text-secondary">{step.body}</p>
     </li>
   );
 }
@@ -52,7 +52,7 @@ export function ApproachSection() {
         <Reveal>
           <p className="site-kicker">Approach</p>
           <h2 className="site-title mt-4 max-w-3xl">
-            Small teams. Tight loops. A handoff you can keep.
+            Small senior teams, short loops, a handover you can keep
           </h2>
         </Reveal>
         <ol className="mt-16 grid gap-12 lg:grid-cols-4 lg:gap-0">

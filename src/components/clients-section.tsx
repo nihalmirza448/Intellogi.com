@@ -245,7 +245,7 @@ export function ClientsSection() {
     <section
       id="clients"
       aria-label="Partners"
-      className="px-[var(--site-gutter)] pb-8"
+      className="px-[var(--site-gutter)] pb-8 pt-16 sm:pt-20"
     >
       <Reveal className="site-shell">
         <p className="site-kicker">Selected partners</p>

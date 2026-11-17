@@ -85,28 +85,28 @@ export default async function CaseStudyPage({
               <Link href="/work" className="site-link hover:text-gold">Work</Link>
             </nav>
             <p className="site-kicker mt-8">{c.sector}</p>
-            <h1 className="site-title mt-4 max-w-5xl">{c.title}</h1>
+            <h1 className="site-title mt-4 max-w-4xl">{c.title}</h1>
             <p className="site-lede mt-8 max-w-2xl">{c.summary}</p>
           </Reveal>
 
           <Reveal delay={0.06}>
-            <dl className="mt-14 grid gap-x-10 gap-y-6 border-t border-border pt-8 sm:grid-cols-2">
+            <dl className="site-card mt-14 grid gap-x-10 gap-y-6 sm:grid-cols-2">
               {c.partners.map((p) => (
                 <div key={p.label}>
-                  <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
+                  <dt className="site-kicker">
                     {p.label}
                   </dt>
                   <dd className="mt-1 text-sm text-foreground">{p.value}</dd>
                 </div>
               ))}
               <div>
-                <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
+                <dt className="site-kicker">
                   Our role
                 </dt>
                 <dd className="mt-1 text-sm text-foreground">{c.role}</dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
+                <dt className="site-kicker">
                   Location · Status
                 </dt>
                 <dd className="mt-1 text-sm text-foreground">
@@ -119,9 +119,10 @@ export default async function CaseStudyPage({
           {c.stats ? (
             <dl className="mt-14 grid grid-cols-2 gap-6 lg:grid-cols-4">
               {c.stats.map((s) => (
-                <div key={s.label} className="border-t border-border pt-5">
-                  <dt className="text-4xl font-extrabold tracking-tight text-gold">{s.value}</dt>
-                  <dd className="mt-2 text-xs leading-snug text-text-secondary">{s.label}</dd>
+                <div key={s.label}>
+                  <dt className="site-stat">{s.value}</dt>
+                  <span className="site-stat-rule" aria-hidden />
+                  <dd className="site-kicker mt-3">{s.label}</dd>
                 </div>
               ))}
             </dl>
@@ -136,10 +137,10 @@ export default async function CaseStudyPage({
             <h2 className="site-kicker">What we delivered</h2>
             <ol className="mt-6 grid gap-8 lg:grid-cols-2">
               {c.delivered.map((d, i) => (
-                <li key={d.title} className="border-t border-border pt-6">
-                  <p className="font-mono text-xs text-gold">{String(i + 1).padStart(2, "0")}</p>
-                  <h3 className="mt-3 text-xl font-bold tracking-tight text-foreground">{d.title}</h3>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">{d.body}</p>
+                <li key={d.title} className="site-card">
+                  <span className="site-disc">{i + 1}</span>
+                  <h3 className="mt-3 text-xl font-normal tracking-tight text-foreground">{d.title}</h3>
+                  <p className="mt-3 max-w-xl leading-relaxed text-text-secondary">{d.body}</p>
                 </li>
               ))}
             </ol>
@@ -158,7 +159,7 @@ export default async function CaseStudyPage({
               {c.capabilities.map((cap) => (
                 <li
                   key={cap}
-                  className="rounded-full border border-border px-3 py-1 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-text-secondary"
+                  className="site-tag"
                 >
                   {cap}
                 </li>
@@ -194,8 +195,8 @@ export default async function CaseStudyPage({
               {others.map((o) => (
                 <li key={o.slug}>
                   <Link href={`/work/${o.slug}`} className="site-case group">
-                    <p className="font-mono text-xs text-gold">{o.sector}</p>
-                    <p className="mt-3 text-2xl font-bold tracking-tight text-foreground group-hover:text-gold">
+                    <p className="site-kicker">{o.sector}</p>
+                    <p className="mt-3 text-2xl font-normal tracking-tight text-foreground group-hover:text-gold">
                       {o.title}
                     </p>
                   </Link>

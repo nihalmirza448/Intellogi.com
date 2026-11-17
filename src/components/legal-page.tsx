@@ -27,11 +27,11 @@ export function LegalPage({
           <Reveal>
             <p className="site-kicker">{kicker}</p>
             <h1 className="site-display mt-6 max-w-5xl">{title}</h1>
-            <p className="mt-6 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-muted">
+            <p className="mt-6 font-mono text-[0.8125rem] uppercase tracking-[0.03em] text-text-muted">
               Last updated {LEGAL_UPDATED}
             </p>
           </Reveal>
-          <div className="prose prose-invert mt-14 max-w-2xl text-base leading-relaxed text-text-secondary prose-headings:text-foreground prose-a:text-foreground prose-strong:text-foreground">
+          <div className="prose mt-14 max-w-2xl text-base leading-relaxed text-text-secondary prose-headings:text-foreground prose-a:text-foreground prose-strong:text-foreground">
             {children}
           </div>
         </div>
