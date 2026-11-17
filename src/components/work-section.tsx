@@ -28,7 +28,7 @@ const labs = [
   },
 ] as const;
 
-function CaseLink({ item, index }: { item: CaseStudy; index: number }) {
+function CaseLink({ item }: { item: CaseStudy }) {
   const hover = useFieldHover(2);
   return (
     <Link href={`/work/${item.slug}`} className="site-case group" {...hover}>
@@ -79,8 +79,8 @@ export function WorkSection() {
         </Reveal>
 
         <div className="mt-16">
-          {caseStudies.map((item, index) => (
-            <CaseLink key={item.slug} item={item} index={index} />
+          {caseStudies.map((item) => (
+            <CaseLink key={item.slug} item={item} />
           ))}
         </div>
 
