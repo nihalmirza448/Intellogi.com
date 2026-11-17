@@ -7,10 +7,10 @@ import { useFieldHover } from "@/components/spatial-field";
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
 
 const proof = [
-  { value: "IOM", label: "Early warning platform for a Sudanese state government" },
-  { value: "FCDO", label: "Grant compliance and sanctions screening for aid into Sudan" },
+  { value: "$26.5M", label: "Aid moved through the Mutual Aid Portal, Sudan" },
+  { value: "429", label: "Emergency Response Rooms on one system" },
+  { value: "20", label: "Communities in the Gedaref early warning system" },
   { value: "241", label: "Community representatives trained in Gedaref" },
-  { value: "EN / AR", label: "Operating procedures handed over in English and Arabic" },
 ] as const;
 
 const labs = [

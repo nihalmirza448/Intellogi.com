@@ -18,6 +18,8 @@ export type CaseStudy = {
   role: string;
   status: string;
   stats?: { value: string; label: string }[];
+  /** Shown under the stats, e.g. the date the figures were taken. */
+  statsNote?: string;
   constraint: string;
   delivered: { title: string; body: string }[];
   outcome: string[];
@@ -54,6 +56,10 @@ export const caseStudies: CaseStudy[] = [
       { value: "237", label: "Members engaged in structure and resource mapping" },
       { value: "241", label: "Representatives trained across eight workshops" },
       { value: "45%", label: "Female participation (41% youth)" },
+      { value: "20", label: "Local mediation committees supported" },
+      { value: "8", label: "Co-design and training workshops" },
+      { value: "3", label: "Custodian layers, community to state" },
+      { value: "2", label: "Operating languages: English and Arabic" },
     ],
     constraint:
       "Farmer–pastoralist tension in Gedaref is driven by shifting livestock movement, contested corridors and competition for pasture and water. The state needed warning of climate, resource and conflict risk early enough to act — in a conflict-affected area with intermittent power, weak connectivity and Arabic-speaking users — and a system its own teams could run after the programme ends.",
@@ -89,43 +95,72 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "mutual-aid-portal",
-    title: "Mutual Aid Portal: grant coordination and compliance for Sudan",
+    title: "Mutual Aid Portal: $26.5M of aid to Sudan, tracked end to end",
     summary:
-      "An FCDO-funded portal and database coordinating mutual aid into Sudan, with grant audit, compliance checks and sanctions screening built in.",
+      "An FCDO-funded portal now running the whole grant cycle for Sudan's Emergency Response Rooms: $26.5M of aid, 429 emergency rooms, compliance built in.",
     sector: "Humanitarian response · Locally led aid",
-    location: "Sudan",
+    location: "Sudan — 10 states",
     fundedBy: "UK Foreign, Commonwealth & Development Office (FCDO)",
     partners: [
       { label: "Client", value: "Proximity2Humanity International (P2H)" },
       { label: "Funded by", value: "UK Government — Foreign, Commonwealth & Development Office" },
+      { label: "Users and owners", value: "Localization Hub and the Localization Coordination Council (LCC), Sudan" },
       { label: "Contracting", value: "Intellogi as technology lead, through Gisa Group" },
     ],
-    role: "Technology lead — data and systems",
-    status: "Live system in operation",
+    role: "Technology lead — data and systems, delivered with a remote team across the UK, Uganda and Sudan",
+    status: "Live; run and developed locally by the Localization Hub team",
+    // To add once confirmed: OCR extraction accuracy (%) and hours saved per
+    // report or per month. Add them as entries below and they will render.
+    stats: [
+      { value: "$26.5M", label: "Aid moved through the portal" },
+      { value: "429", label: "Emergency Response Rooms covered" },
+      { value: "354", label: "Live projects across 10 states" },
+      { value: "1,421", label: "Historical project records unified" },
+      { value: "504", label: "Financial reports processed with OCR" },
+      { value: "93", label: "Users on role-based access" },
+      { value: "64", label: "MOUs managed in the portal" },
+      { value: "100%", label: "Of the F1–F5 grant cycle now run in the portal" },
+    ],
+    statsNote:
+      "Aid total is current. Project, record, report, user and MOU counts are from the Milestone 3 report, March 2026.",
     constraint:
-      "Aid to Sudan moves under emergency pressure, with many actors, funds going to community responders, and no shared picture of who is doing what. Donors need every grant to be traceable and screened; responders need a system they can actually staff.",
+      "Sudan's Emergency Response Rooms are volunteer-run and move aid under emergency pressure. Grant paperwork — work plans, approvals, agreements, financial and programme reports — lived in forms, spreadsheets and WhatsApp, so no one had a single picture of where money went. Donors need every grant traceable and screened; responders need a system volunteers can actually use.",
     delivered: [
       {
-        title: "Coordination portal and database",
-        body: "One place for case and aid flows and a shared operational picture across the actors involved.",
+        title: "The whole grant cycle in one system",
+        body: "Work plans (F1), approvals (F2), agreements (F3), financial reports (F4) and programme reports (F5) are now submitted only through the portal, giving the Localization Hub one source of data for the first time.",
       },
       {
-        title: "Grant audit and compliance checks",
-        body: "Checks on FCDO grant funds disbursed to partners in Sudan, applying donor fiduciary requirements, with every reported figure traceable to its source input.",
+        title: "OCR for receipts and reports",
+        body: "Financial and programme reports are read automatically from uploaded documents, with manual entry and an accept/reject review step so a person confirms every figure before it counts.",
       },
       {
-        title: "Sanctions screening",
-        body: "Screening of recipients against sanctions lists, built into the grant workflow rather than run as a separate manual step.",
+        title: "Dashboards and an overdue tracker",
+        body: "Real-time views of funding flows, reporting status and projects past their reporting deadline, replacing manual chasing.",
+      },
+      {
+        title: "Role-based access for every level",
+        body: "Permissions for base and state emergency rooms and administrators, so each person sees and edits only what their role needs.",
+      },
+      {
+        title: "Compliance and sanctions screening",
+        body: "Names on grant applications are checked against sanctions lists, with a match flagged for review — built for the donor's fiduciary requirements on funds sent into a high-risk context.",
+      },
+      {
+        title: "Notifications and surveys in the app",
+        body: "Structured coordination and data collection from volunteers, reducing dependence on WhatsApp.",
       },
     ],
     outcome: [
-      "A live system that community operators can staff and run, giving the donor traceable, screened grant flows into a high-risk context.",
+      "The portal is the only route for grant paperwork across the Emergency Response Rooms, and $26.5M of aid has moved through it.",
+      "Weekly co-development sessions mean the Localization Hub team now maintains and extends the system itself — the handover was designed in, not added at the end.",
     ],
     capabilities: [
       "Grant management systems",
-      "Donor compliance and fiduciary controls",
-      "Sanctions screening",
-      "Case and aid-flow platforms",
+      "OCR and document processing",
+      "Donor compliance and sanctions screening",
+      "Role-based access control",
+      "Local ownership and handover",
     ],
     link: { href: "https://mutual-aid-portal.vercel.app/login", label: "View the live system" },
   },
@@ -133,17 +168,26 @@ export const caseStudies: CaseStudy[] = [
     slug: "humanitarian-stablecoin-payments-pilot",
     title: "Humanitarian payments pilot: chat platform with stablecoin transfers",
     summary:
-      "A pilot chat platform with stablecoin payments, built with Convexity Technologies for the Prosper Global Humanitarian Ventures Lab.",
+      "Stablecoin cash transfers to Sudan's Emergency Response Rooms over chat, delivered with a five-partner consortium and Convexity Technologies.",
     sector: "Humanitarian finance · Digital payments",
-    location: "Pilot",
+    location: "Sudan — Emergency Response Rooms",
     fundedBy: "Prosper Global Humanitarian Ventures Lab",
     partners: [
       { label: "Built with", value: "Convexity Technologies (Nigeria)" },
       { label: "Funded by", value: "Prosper Global Humanitarian Ventures Lab" },
+      {
+        label: "Consortium",
+        value:
+          "Proximity2Humanity, Localization Hub, Mercy Corps Ventures, Stellar Development Foundation and Gisa Group",
+      },
       { label: "Contracting", value: "Intellogi as technology lead, through Gisa Group" },
     ],
     role: "Technology lead",
     status: "Pilot",
+    stats: [
+      { value: "5", label: "Partners coordinated in the consortium" },
+      { value: "1", label: "Channel for payments and conversation: chat" },
+    ],
     constraint:
       "Getting money to people in crisis settings is slow and expensive when banking is disrupted. The pilot tested whether payments could reach recipients through a channel they already use — chat — using stablecoin transfers.",
     delivered: [

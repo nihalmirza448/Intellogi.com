@@ -110,14 +110,14 @@ export default async function CaseStudyPage({
                   Location · Status
                 </dt>
                 <dd className="mt-1 text-sm text-foreground">
-                  {c.location} · {c.status}
+                  {`${c.location} · ${c.status}`}
                 </dd>
               </div>
             </dl>
           </Reveal>
 
           {c.stats ? (
-            <dl className="mt-14 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
               {c.stats.map((s) => (
                 <div key={s.label}>
                   <dt className="site-stat">{s.value}</dt>
@@ -126,6 +126,9 @@ export default async function CaseStudyPage({
                 </div>
               ))}
             </dl>
+          ) : null}
+          {c.statsNote ? (
+            <p className="mt-6 max-w-2xl text-sm text-text-secondary">{c.statsNote}</p>
           ) : null}
 
           <section className="mt-20 max-w-2xl">
