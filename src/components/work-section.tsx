@@ -7,10 +7,10 @@ import { useFieldHover } from "@/components/spatial-field";
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
 
 const proof = [
-  { value: "IOM", label: "Early warning platform for a Sudanese state government" },
-  { value: "FCDO", label: "Grant compliance and sanctions screening for aid into Sudan" },
+  { value: "$26.6M", label: "Aid transferred through the Mutual Aid Portal, Sudan" },
+  { value: "2,634", label: "Emergency projects planned in the portal" },
+  { value: "20", label: "Communities in the Gedaref early warning system" },
   { value: "241", label: "Community representatives trained in Gedaref" },
-  { value: "EN / AR", label: "Operating procedures handed over in English and Arabic" },
 ] as const;
 
 const labs = [
@@ -28,23 +28,21 @@ const labs = [
   },
 ] as const;
 
-function CaseLink({ item, index }: { item: CaseStudy; index: number }) {
+function CaseLink({ item }: { item: CaseStudy }) {
   const hover = useFieldHover(2);
   return (
     <Link href={`/work/${item.slug}`} className="site-case group" {...hover}>
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
-          <p className="font-mono text-xs text-gold">
-            {String(index + 1).padStart(2, "0")} · {item.sector}
-          </p>
-          <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-5xl">
+          <p className="site-kicker">{item.sector}</p>
+          <h3 className="mt-4 text-3xl font-normal leading-tight tracking-tight text-foreground sm:text-4xl">
             {item.title}
           </h3>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-text-secondary">
+          <p className="mt-5 max-w-xl leading-relaxed text-text-secondary">
             {item.summary}
           </p>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
-            <span className="font-medium text-foreground">Our role. </span>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+            <span className="font-bold text-foreground">Our role: </span>
             {item.role}
           </p>
         </div>
@@ -64,26 +62,25 @@ export function WorkSection() {
         <Reveal>
           <p className="site-kicker">Work</p>
           <h2 className="site-title mt-4 max-w-3xl">
-            Systems that government and UN programmes run on.
+            Systems that government and UN programmes run on
           </h2>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {proof.map((p) => (
               <div key={p.label}>
-                <dt className="text-3xl font-extrabold tracking-tight text-gold">{p.value}</dt>
-                <dd className="mt-2 max-w-[16rem] text-xs leading-snug text-text-secondary">
-                  {p.label}
-                </dd>
+                <dt className="site-stat">{p.value}</dt>
+                <span className="site-stat-rule" aria-hidden />
+                <dd className="site-kicker mt-3 max-w-[16rem]">{p.label}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
 
         <div className="mt-16">
-          {caseStudies.map((item, index) => (
-            <CaseLink key={item.slug} item={item} index={index} />
+          {caseStudies.map((item) => (
+            <CaseLink key={item.slug} item={item} />
           ))}
         </div>
 
@@ -101,13 +98,13 @@ export function WorkSection() {
           </p>
           <ul className="mt-6 grid gap-6 sm:grid-cols-2">
             {labs.map((lab) => (
-              <li key={lab.title} className="border-t border-border pt-5">
+              <li key={lab.title} className="site-card">
                 {lab.external ? (
                   <a
                     href={lab.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="site-link group inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-gold"
+                    className="site-link group inline-flex items-center gap-2 text-xl font-normal text-foreground underline decoration-[var(--mint)] decoration-[3px] underline-offset-[6px]"
                   >
                     {lab.title}
                     <ArrowUpRight className="size-4" />
@@ -115,13 +112,13 @@ export function WorkSection() {
                 ) : (
                   <Link
                     href={lab.href}
-                    className="site-link group inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-gold"
+                    className="site-link group inline-flex items-center gap-2 text-xl font-normal text-foreground underline decoration-[var(--mint)] decoration-[3px] underline-offset-[6px]"
                   >
                     {lab.title}
                     <ArrowUpRight className="size-4" />
                   </Link>
                 )}
-                <p className="mt-2 max-w-sm text-sm leading-relaxed text-text-secondary">
+                <p className="mt-3 max-w-sm leading-relaxed text-text-secondary">
                   {lab.body}
                 </p>
               </li>

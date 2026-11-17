@@ -49,8 +49,8 @@ export default function WorkIndexPage() {
             {caseStudies.map((c) => (
               <li key={c.slug}>
                 <Link href={`/work/${c.slug}`} className="site-case group">
-                  <p className="font-mono text-xs text-gold">{c.sector}</p>
-                  <h2 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-foreground group-hover:text-gold sm:text-4xl">
+                  <p className="site-kicker">{c.sector}</p>
+                  <h2 className="mt-4 max-w-4xl text-3xl font-normal tracking-tight text-foreground group-hover:text-gold sm:text-4xl">
                     {c.title}
                   </h2>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-secondary">

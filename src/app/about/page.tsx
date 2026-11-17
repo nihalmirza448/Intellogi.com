@@ -19,13 +19,11 @@ export default function AboutPage() {
           <Reveal>
             <p className="site-kicker">About</p>
             <h1 className="site-display mt-6 max-w-5xl">
-              Nobody owns the whole.
-              <br />
-              That is the job.
+              One team accountable for the whole technology estate.
             </h1>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="prose prose-invert mt-14 max-w-2xl text-base leading-relaxed text-text-secondary">
+            <div className="prose mt-14 max-w-2xl text-base leading-relaxed text-text-secondary">
               <p>
                 Large programmes rarely fail on technology strategy. They fail
                 on the scatter. A registration tool from one supplier, a
@@ -108,7 +106,7 @@ export default function AboutPage() {
           <Reveal delay={0.12}>
             <div className="mt-14 flex flex-wrap items-center gap-3">
               <Link href="/#contact" className="site-btn site-btn-primary site-link">
-                Tell us the constraint
+                Start a conversation
               </Link>
               <Link href="/#capabilities" className="site-btn site-btn-quiet site-link">
                 View capabilities
