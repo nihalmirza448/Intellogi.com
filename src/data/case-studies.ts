@@ -97,7 +97,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "mutual-aid-portal",
     title: "Mutual Aid Portal: $26.6M of aid to Sudan, tracked end to end",
     summary:
-      "An FCDO-funded portal running the whole grant cycle for Sudan's Emergency Response Rooms: $26.6M transferred, 2,634 projects, compliance built in.",
+      "An FCDO-funded portal running the grant cycle for Sudan's Emergency Response Rooms: $26.6M transferred, 2,634 projects, 2,465 work plans read by OCR.",
     sector: "Humanitarian response · Locally led aid",
     location: "Sudan — 10 states",
     fundedBy: "UK Foreign, Commonwealth & Development Office (FCDO)",
@@ -115,14 +115,13 @@ export const caseStudies: CaseStudy[] = [
       { value: "$26.6M", label: "Transferred to emergency rooms through the portal" },
       { value: "$17.7M", label: "Planned activity in work plans" },
       { value: "2,634", label: "Projects planned in the portal" },
+      { value: "2,465", label: "Work plans read by OCR instead of typed in" },
+      { value: "79%", label: "Key fields extracted correctly by OCR (13 of 17)" },
       { value: "10+", label: "Donors' grants tracked in one system" },
       { value: "429", label: "Emergency Response Rooms covered" },
-      { value: "504", label: "Financial reports processed with OCR" },
-      { value: "93", label: "Users on role-based access" },
-      { value: "100%", label: "Of the F1–F5 grant cycle run in the portal" },
     ],
     statsNote:
-      "Transferred, planned, project and donor figures are from the portal dashboard, November 2026. Room, report and user counts are from the Milestone 3 report, March 2026.",
+      "From the portal's production data, November 2026. OCR accuracy is measured on 17 key fields per work plan, compared before and after human review. Emergency room count from the Milestone 3 report, March 2026.",
     constraint:
       "Sudan's Emergency Response Rooms are volunteer-run and move aid under emergency pressure. Grant paperwork — work plans, approvals, agreements, financial and programme reports — lived in forms, spreadsheets and WhatsApp, so no one had a single picture of where money went. Donors need every grant traceable and screened; responders need a system volunteers can actually use.",
     delivered: [
@@ -131,8 +130,8 @@ export const caseStudies: CaseStudy[] = [
         body: "Work plans (F1), approvals (F2), agreements (F3), financial reports (F4) and programme reports (F5) are now submitted only through the portal, giving the Localization Hub one source of data for the first time.",
       },
       {
-        title: "OCR for receipts and reports",
-        body: "Financial and programme reports are read automatically from uploaded documents, with manual entry and an accept/reject review step so a person confirms every figure before it counts.",
+        title: "OCR for work plans and reports",
+        body: "Handwritten and scanned work plans, financial and programme reports are read automatically — 2,465 work plans so far, with 79% of key fields extracted correctly. A review step means a person confirms every figure before it counts.",
       },
       {
         title: "Dashboards and an overdue tracker",
