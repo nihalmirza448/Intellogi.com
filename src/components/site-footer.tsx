@@ -3,7 +3,7 @@ import { BrandMark } from "@/components/brand-mark";
 
 const links = [
   { href: "/#capabilities", label: "Capabilities" },
-  { href: "/#work", label: "Work" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },

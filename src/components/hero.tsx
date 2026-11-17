@@ -68,8 +68,8 @@ export function Hero() {
         <RevealItem delay={0.12}>
           <p className="site-lede mt-8 max-w-xl">
             From the requirement to the running system, one accountable partner
-            across the whole technology surface — for humanitarian, civic, and
-            financial programmes that need the estate held.
+            across the whole technology surface — for governments, UN agencies
+            and humanitarian programmes that need the estate held.
           </p>
         </RevealItem>
         <RevealItem delay={0.18}>

@@ -8,7 +8,7 @@ import { BrandMark } from "@/components/brand-mark";
 
 const nav = [
   { href: "/#capabilities", label: "Capabilities" },
-  { href: "/#work", label: "Work" },
+  { href: "/work", label: "Work" },
   { href: "/#approach", label: "Approach" },
   { href: "/about", label: "About" },
 ] as const;
@@ -51,7 +51,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              data-current={item.href === "/about" && pathname === "/about" ? "true" : undefined}
+              data-current={item.href.startsWith("/#") ? undefined : pathname === item.href || pathname.startsWith(`${item.href}/`) ? "true" : undefined}
               className="site-nav-link"
             >
               {item.label}

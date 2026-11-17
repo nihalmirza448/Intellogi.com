@@ -7,7 +7,8 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Intellogi is the technology function for large programmes — one counterpart from the requirement to the running system, then a planned transfer.",
+    "About Intellogi Technologies Limited: the technology function for government, UN and humanitarian programmes, from London and Hyderabad.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -70,6 +71,17 @@ export default function AboutPage() {
                 monitoring across UK and India time zones.
               </p>
               <p>
+                Our work includes a community early warning platform for the
+                Gedaref State Early Warning Unit in Sudan, commissioned by the
+                International Organization for Migration (IOM), and an
+                FCDO-funded portal coordinating mutual aid into Sudan with grant
+                compliance and sanctions screening built in.{" "}
+                <Link href="/work" className="site-link text-foreground underline">
+                  See the work
+                </Link>
+                .
+              </p>
+              <p>
                 We will not take a specification we did not help write and call
                 that a complete engagement. We will not build a piece of the
                 estate and leave the seams to someone else. We will not ship
@@ -84,6 +96,12 @@ export default function AboutPage() {
             <div className="mt-20">
               <h2 className="site-kicker">Office locations</h2>
               <OfficeCards className="mt-8 max-w-3xl" />
+              <p className="mt-8 max-w-2xl text-sm leading-relaxed text-text-secondary">
+                Intellogi Technologies Limited is registered in England and
+                Wales (company number 15973922). Intellogi Technologies India
+                Private Limited is registered in India. The Intellogi business
+                has operated in Hyderabad since 2014.
+              </p>
             </div>
           </Reveal>
 

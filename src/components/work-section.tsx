@@ -4,102 +4,55 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { useFieldHover } from "@/components/spatial-field";
+import { caseStudies, type CaseStudy } from "@/data/case-studies";
 
-const cases = [
+const proof = [
+  { value: "IOM", label: "Early warning platform for a Sudanese state government" },
+  { value: "FCDO", label: "Grant compliance and sanctions screening for aid into Sudan" },
+  { value: "241", label: "Community representatives trained in Gedaref" },
+  { value: "EN / AR", label: "Operating procedures handed over in English and Arabic" },
+] as const;
+
+const labs = [
   {
     title: "Privyra",
-    constraint:
-      "People cannot see or stop personal data being sold across broker networks in India.",
-    approach:
-      "Scan exposure, automate deletion requests, and keep risk visible after the first cleanup.",
-    // Inferred from Privyra being Intellogi's own product on this site.
-    ownership: "Intellogi holds and runs Privyra.",
+    body: "Our own privacy product: finds where personal data is exposed on broker sites and automates deletion requests.",
     href: "/projects/privyra",
     external: false,
-    action: "Open the product",
-  },
-  {
-    title: "Mutual Aid Portal",
-    constraint:
-      "Aid has to move under emergency pressure, with many actors and no shared picture of who is doing what.",
-    approach:
-      "Case and aid flows, shared operational picture, and a system communities can actually staff.",
-    // Restates the existing “communities can actually staff” claim. Confirm operator.
-    ownership: "Community operators can staff and run the live system.",
-    href: "https://mutual-aid-portal.vercel.app/login",
-    external: true,
-    action: "View the live system",
   },
   {
     title: "45-60",
-    constraint:
-      "Trading decisions, rules and results lived in separate tools, so the operation could not be seen as one picture.",
-    approach:
-      "A live trading cockpit — Confluence Core — so signals, rules, and paper-forward results stay visible after the trade.",
-    // Inferred from the live platform. Confirm operator.
-    ownership: "Operators run the live platform.",
+    body: "A live trading cockpit that keeps signals, rules and results in one view.",
     href: "https://45-60.com",
     external: true,
-    action: "Open the platform",
   },
 ] as const;
 
-function CaseLink({
-  item,
-  index,
-}: {
-  item: (typeof cases)[number];
-  index: number;
-}) {
+function CaseLink({ item, index }: { item: CaseStudy; index: number }) {
   const hover = useFieldHover(2);
-  const inner = (
-    <>
+  return (
+    <Link href={`/work/${item.slug}`} className="site-case group" {...hover}>
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
           <p className="font-mono text-xs text-gold">
-            {String(index + 1).padStart(2, "0")}
+            {String(index + 1).padStart(2, "0")} · {item.sector}
           </p>
-          <h3 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-6xl">
+          <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-5xl">
             {item.title}
           </h3>
           <p className="mt-6 max-w-xl text-sm leading-relaxed text-text-secondary">
-            <span className="font-medium text-foreground">Constraint. </span>
-            {item.constraint}
+            {item.summary}
           </p>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
-            <span className="font-medium text-foreground">Approach. </span>
-            {item.approach}
-          </p>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-text-secondary">
-            <span className="font-medium text-foreground">Ownership. </span>
-            {item.ownership}
+            <span className="font-medium text-foreground">Our role. </span>
+            {item.role}
           </p>
         </div>
         <span className="site-btn site-btn-quiet inline-flex h-auto shrink-0">
-          {item.action}
+          Read the case
           <ArrowUpRight className="size-4" />
         </span>
       </div>
-    </>
-  );
-
-  if (item.external) {
-    return (
-      <a
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="site-case group"
-        {...hover}
-      >
-        {inner}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={item.href} className="site-case group" {...hover}>
-      {inner}
     </Link>
   );
 }
@@ -110,13 +63,71 @@ export function WorkSection() {
       <div className="site-shell">
         <Reveal>
           <p className="site-kicker">Work</p>
-          <h2 className="site-title mt-4 max-w-3xl">Constraint, then the system.</h2>
+          <h2 className="site-title mt-4 max-w-3xl">
+            Systems that government and UN programmes run on.
+          </h2>
         </Reveal>
+
+        <Reveal delay={0.06}>
+          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:grid-cols-4">
+            {proof.map((p) => (
+              <div key={p.label}>
+                <dt className="text-3xl font-extrabold tracking-tight text-gold">{p.value}</dt>
+                <dd className="mt-2 max-w-[16rem] text-xs leading-snug text-text-secondary">
+                  {p.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
         <div className="mt-16">
-          {cases.map((item, index) => (
-            <CaseLink key={item.title} item={item} index={index} />
+          {caseStudies.map((item, index) => (
+            <CaseLink key={item.slug} item={item} index={index} />
           ))}
         </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <Link href="/work" className="site-btn site-btn-quiet site-link">
+            All work
+            <ArrowUpRight className="size-4" />
+          </Link>
+        </div>
+
+        <Reveal className="mt-20">
+          <p className="site-kicker">Products and labs</p>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+            Products we build and run ourselves, alongside programme work.
+          </p>
+          <ul className="mt-6 grid gap-6 sm:grid-cols-2">
+            {labs.map((lab) => (
+              <li key={lab.title} className="border-t border-border pt-5">
+                {lab.external ? (
+                  <a
+                    href={lab.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="site-link group inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-gold"
+                  >
+                    {lab.title}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                ) : (
+                  <Link
+                    href={lab.href}
+                    className="site-link group inline-flex items-center gap-2 text-lg font-bold text-foreground hover:text-gold"
+                  >
+                    {lab.title}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                )}
+                <p className="mt-2 max-w-sm text-sm leading-relaxed text-text-secondary">
+                  {lab.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
