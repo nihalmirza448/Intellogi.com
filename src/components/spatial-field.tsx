@@ -122,9 +122,7 @@ function compile(gl: WebGLRenderingContext, type: number, source: string) {
 }
 
 export function FieldRoot({ children }: { children: ReactNode }) {
-  const energy = useRef(0);
   const energyTarget = useRef(0);
-  const mode = useRef(0);
   const modeTarget = useRef(0);
 
   const setEnergy = useCallback((value: number) => {
@@ -137,18 +135,14 @@ export function FieldRoot({ children }: { children: ReactNode }) {
 
   return (
     <FieldContext.Provider value={{ setEnergy, setMode }}>
-      <SpatialCanvas
-        energy={energy}
-        energyTarget={energyTarget}
-        mode={mode}
-        modeTarget={modeTarget}
-      />
+      {/* Animated WebGL background retired with the design-system refresh;
+          SpatialCanvas is kept below in case it is wanted again. */}
       {children}
     </FieldContext.Provider>
   );
 }
 
-function SpatialCanvas({
+export function SpatialCanvas({
   energy,
   energyTarget,
   mode,

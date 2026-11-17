@@ -37,16 +37,17 @@ function ServiceRow({
 
   return (
     <li
-      className="group grid gap-4 border-t border-border py-10 last:border-b sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-10 lg:grid-cols-[5rem_minmax(0,22rem)_1fr] lg:py-14"
+      className="group grid items-start gap-4 border-t border-dashed border-[var(--ag-border-strong)] py-10 last:border-b sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-10 lg:grid-cols-[5rem_minmax(0,22rem)_1fr] lg:py-14"
       {...hover}
     >
-      <span className="font-mono text-xs text-gold">
-        {String(index + 1).padStart(2, "0")} {item.label}
+      <span className="flex items-center gap-3">
+        <span className="site-disc">{index + 1}</span>
+        <span className="site-kicker lg:hidden">{item.label}</span>
       </span>
-      <h3 className="max-w-md text-2xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-gold sm:text-3xl">
+      <h3 className="max-w-md text-2xl font-normal tracking-tight text-foreground sm:text-3xl">
         {item.title}
       </h3>
-      <p className="max-w-xl self-center text-sm leading-relaxed text-text-secondary lg:justify-self-end">
+      <p className="max-w-xl leading-relaxed text-text-secondary lg:justify-self-end">
         {item.body}
       </p>
     </li>
@@ -60,7 +61,7 @@ export function ServicesSection() {
         <Reveal>
           <p className="site-kicker">Capabilities</p>
           <h2 className="site-title mt-4 max-w-3xl">
-            Four capabilities. One accountable partner.
+            Four capabilities, one accountable partner
           </h2>
         </Reveal>
         <ol className="mt-16">

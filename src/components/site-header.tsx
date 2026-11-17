@@ -36,14 +36,14 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="relative z-50 flex items-center gap-4 border-b border-border px-[var(--site-gutter)] py-4 backdrop-blur-[2px]">
+    <header className="theme-dark fixed inset-x-0 top-0 z-50">
+      <div className="relative z-50 flex items-center gap-4 border-b border-border bg-[var(--ground)] px-[var(--site-gutter)] py-3">
         <Link
           href="/"
           className="site-link flex min-w-0 items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
         >
-          <BrandMark size={44} priority />
-          <span className="truncate tracking-[0.18em] uppercase">Intellogi</span>
+          <BrandMark size={40} priority />
+          <span className="truncate text-base font-normal tracking-tight">Intellogi Technologies</span>
         </Link>
 
         <nav className="ml-auto hidden items-center gap-7 md:flex" aria-label="Primary">
@@ -63,7 +63,7 @@ export function SiteHeader() {
           href="/#contact"
           className="site-btn site-btn-primary site-link ml-6 hidden no-underline md:inline-flex"
         >
-          Tell us the constraint
+          Start a conversation
         </Link>
 
         <button
@@ -81,14 +81,14 @@ export function SiteHeader() {
       {open ? (
         <div
           id={menuId}
-          className="fixed inset-0 z-40 flex flex-col justify-end bg-[oklch(0.07_0.014_80/0.96)] px-[var(--site-gutter)] pb-10 pt-24 md:hidden"
+          className="fixed inset-0 z-40 flex flex-col justify-end bg-[var(--ground)] px-[var(--site-gutter)] pb-10 pt-24 md:hidden"
         >
           <nav aria-label="Mobile" className="flex flex-col gap-2">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="site-link py-2 text-4xl font-extrabold tracking-tight text-foreground"
+                className="site-link py-2 text-4xl font-normal tracking-tight text-foreground"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -100,7 +100,7 @@ export function SiteHeader() {
             className="site-btn site-btn-primary site-link mt-8 w-fit no-underline"
             onClick={() => setOpen(false)}
           >
-            Tell us the constraint
+            Start a conversation
           </Link>
         </div>
       ) : null}

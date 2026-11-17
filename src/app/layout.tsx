@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { DM_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -10,20 +10,16 @@ import {
   websiteJsonLd,
 } from "@/lib/site";
 
-const geist = Geist({
-  variable: "--font-geist",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const syne = Syne({
-  variable: "--font-syne",
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -68,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${syne.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${instrument.variable} ${dmMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="relative flex min-h-full flex-col">
         <a href="#main" className="skip-link site-link">
