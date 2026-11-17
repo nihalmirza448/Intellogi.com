@@ -95,9 +95,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "mutual-aid-portal",
-    title: "Mutual Aid Portal: $26.5M of aid to Sudan, tracked end to end",
+    title: "Mutual Aid Portal: $26.6M of aid to Sudan, tracked end to end",
     summary:
-      "An FCDO-funded portal now running the whole grant cycle for Sudan's Emergency Response Rooms: $26.5M of aid, 429 emergency rooms, compliance built in.",
+      "An FCDO-funded portal running the whole grant cycle for Sudan's Emergency Response Rooms: $26.6M transferred, 2,634 projects, compliance built in.",
     sector: "Humanitarian response · Locally led aid",
     location: "Sudan — 10 states",
     fundedBy: "UK Foreign, Commonwealth & Development Office (FCDO)",
@@ -112,17 +112,17 @@ export const caseStudies: CaseStudy[] = [
     // To add once confirmed: OCR extraction accuracy (%) and hours saved per
     // report or per month. Add them as entries below and they will render.
     stats: [
-      { value: "$26.5M", label: "Aid moved through the portal" },
+      { value: "$26.6M", label: "Transferred to emergency rooms through the portal" },
+      { value: "$17.7M", label: "Planned activity in work plans" },
+      { value: "2,634", label: "Projects planned in the portal" },
+      { value: "10+", label: "Donors' grants tracked in one system" },
       { value: "429", label: "Emergency Response Rooms covered" },
-      { value: "354", label: "Live projects across 10 states" },
-      { value: "1,421", label: "Historical project records unified" },
       { value: "504", label: "Financial reports processed with OCR" },
       { value: "93", label: "Users on role-based access" },
-      { value: "64", label: "MOUs managed in the portal" },
-      { value: "100%", label: "Of the F1–F5 grant cycle now run in the portal" },
+      { value: "100%", label: "Of the F1–F5 grant cycle run in the portal" },
     ],
     statsNote:
-      "Aid total is current. Project, record, report, user and MOU counts are from the Milestone 3 report, March 2026.",
+      "Transferred, planned, project and donor figures are from the portal dashboard, November 2026. Room, report and user counts are from the Milestone 3 report, March 2026.",
     constraint:
       "Sudan's Emergency Response Rooms are volunteer-run and move aid under emergency pressure. Grant paperwork — work plans, approvals, agreements, financial and programme reports — lived in forms, spreadsheets and WhatsApp, so no one had a single picture of where money went. Donors need every grant traceable and screened; responders need a system volunteers can actually use.",
     delivered: [
@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     outcome: [
-      "The portal is the only route for grant paperwork across the Emergency Response Rooms, and $26.5M of aid has moved through it.",
+      "The portal is the only route for grant paperwork across the Emergency Response Rooms: $26.6M has been transferred through it across 2,634 planned projects.",
       "Weekly co-development sessions mean the Localization Hub team now maintains and extends the system itself — the handover was designed in, not added at the end.",
     ],
     capabilities: [
