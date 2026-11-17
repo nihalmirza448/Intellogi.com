@@ -42,7 +42,7 @@ export function SiteHeader() {
           href="/"
           className="site-link flex min-w-0 items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
         >
-          <BrandMark size={40} priority />
+          <BrandMark size={34} priority />
           <span className="truncate text-base font-normal tracking-tight">Intellogi Technologies</span>
         </Link>
 

@@ -17,7 +17,7 @@ export function SiteFooter() {
       <div className="site-shell flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <BrandMark size={36} />
+            <BrandMark size={34} />
             <p className="text-base tracking-tight text-foreground">
               Intellogi Technologies
             </p>
@@ -36,6 +36,14 @@ export function SiteFooter() {
               {item.label}
             </Link>
           ))}
+          <a
+            href="https://www.linkedin.com/company/77046211/"
+            target="_blank"
+            rel="noopener noreferrer me"
+            className="site-nav-link"
+          >
+            LinkedIn
+          </a>
         </nav>
       </div>
     </footer>

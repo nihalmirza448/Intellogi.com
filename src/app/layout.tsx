@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/intellogi-logo.png",
-        width: 1024,
-        height: 395,
+        url: "/brand/intellogi-og.png",
+        width: 1200,
+        height: 630,
         alt: "Intellogi Technologies",
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Intellogi Technologies",
     description:
       "The technology partner for government, UN and humanitarian programmes.",
-    images: ["/intellogi-logo.png"],
+    images: ["/brand/intellogi-og.png"],
   },
 };
 

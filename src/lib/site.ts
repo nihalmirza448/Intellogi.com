@@ -10,6 +10,7 @@ export const siteDescription =
  * House, Clutch, UNGM…). Search engines use these to confirm the entity.
  */
 export const sameAs: string[] = [
+  "https://www.linkedin.com/company/77046211/",
   "https://find-and-update.company-information.service.gov.uk/company/15973922",
 ];
 
@@ -21,7 +22,7 @@ export const organizationJsonLd = {
   legalName: "Intellogi Technologies Limited",
   alternateName: ["Intellogi", "Intellogi Technologies Ltd"],
   url: siteUrl,
-  logo: `${siteUrl}/intellogi-logo.png`,
+  logo: `${siteUrl}/brand/intellogi-icon-512.png`,
   description: siteDescription,
   email: "nihal@intellogi.com",
   foundingDate: "2014",
