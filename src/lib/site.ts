@@ -1,4 +1,4 @@
-export const siteUrl = "https://intellogi.com";
+export const siteUrl = "https://www.intellogi.com";
 
 export const siteName = "Intellogi Technologies";
 
